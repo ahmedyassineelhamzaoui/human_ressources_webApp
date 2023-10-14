@@ -19,4 +19,62 @@ public class Departement {
     @OneToMany(mappedBy = "department")
     private List<Employe> employees;
 
+	public Departement() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Departement(String name, String description, String headOfDepartment, List<Employe> employees) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.headOfDepartment = headOfDepartment;
+		this.employees = employees;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getHeadOfDepartment() {
+		return headOfDepartment;
+	}
+
+	public void setHeadOfDepartment(String headOfDepartment) {
+		this.headOfDepartment = headOfDepartment;
+	}
+
+	public List<Employe> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employe> employees) {
+		this.employees = employees;
+	}
+
+	@Override
+	public String toString() {
+		return "Departement [id=" + id + ", name=" + name + ", description=" + description + ", headOfDepartment="
+				+ headOfDepartment + ", employees=" + employees + "]";
+	}
+
 }
