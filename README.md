@@ -28,9 +28,7 @@ Run the following Maven commands to clean and build the project: mvn clean insta
 9.  Right click on src/main/main -> new -> package name it com.app.controller (here  add all servlets)
 10. Right click on src/main/main -> new -> package name it com.app.entity (here  add all entitys )
 11. Right click on src/main/main -> new -> package name it com.app.util (here  add all HibernateUtil class to create your database and your tables )
-12. Configure the project settings (such as the JRE, build path, etc.) as needed.
-13. Click Finish to create the project.
+
 
 ## Folder Structure
-
-![Image Alt Text](/images/project_structure.jpg)
+![project_structure](https://github.com/ahmedyassineelhamzaoui/human_ressources_webApp/assets/110307855/490f344b-d5c9-4d53-933c-6921dc3c1782)
