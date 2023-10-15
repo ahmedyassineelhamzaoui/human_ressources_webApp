@@ -2,6 +2,9 @@
 
 A Java EE web application for managing tasks.
 
+## Project Content
+| Technologies Used         | <a name="technologies-used"></a>                    |
+
 ## Technologies Used
 - Java
 - Java EE (Enterprise Edition)
