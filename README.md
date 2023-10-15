@@ -2,6 +2,18 @@
 
 A Java EE web application for managing tasks.
 
+## Technologies Used
+- Java
+- Java EE (Enterprise Edition)
+- HTML5,CSS3 and bootsrap
+- JavaScript
+- Spring Framework (version 5.2)
+- Hibernate ORM (version 6.3.3)
+- Maven (for project management)
+- MySQL Database
+- JSP,JSF Servlet
+- Apache Tomcat Server (version 9)
+
 ## Getting Started
 
 ### Method 1: Cloning the Project
@@ -25,10 +37,13 @@ Run the following Maven commands to clean and build the project: mvn clean insta
 7. Right click on your project and click into build path -> configure  Build path -> click into JRE System Library[javaSE-version] -> click Apply and close  (here you can see a new 
    direction resources ).
 8.  Right click on src/main/resources -> new -> folder and type META-INF -> Right click on this folder and new -> file name it persistence.xml
-9.  Right click on src/main/main -> new -> package name it com.app.controller (here  add all servlets)
-10. Right click on src/main/main -> new -> package name it com.app.entity (here  add all entitys )
-11. Right click on src/main/main -> new -> package name it com.app.util (here  add all HibernateUtil class to create your database and your tables )
-
+9.  ![persistence](https://github.com/ahmedyassineelhamzaoui/human_ressources_webApp/assets/110307855/d0774b21-cbde-4b60-9c44-fada5b02454e)
+10.  Right click on src/main/main -> new -> package name it com.app.controller (here  add all servlets)
+11. Right click on src/main/main -> new -> package name it com.app.entity (here  add all entitys )
+12. Right click on src/main/main -> new -> package name it com.app.util (here  add all HibernateUtil class to create your database and your tables )
+![hibernateutil](https://github.com/ahmedyassineelhamzaoui/human_ressources_webApp/assets/110307855/5ab0eccd-11e4-43fe-a844-94d406d43b6a)
 
 ## Folder Structure
 ![project_structure](https://github.com/ahmedyassineelhamzaoui/human_ressources_webApp/assets/110307855/490f344b-d5c9-4d53-933c-6921dc3c1782)
+## UML Diagrame
+![uml diagrame](https://github.com/ahmedyassineelhamzaoui/human_ressources_webApp/assets/110307855/7d5a2ee5-ba76-4ab4-b8e0-6e21b8517d1f)
