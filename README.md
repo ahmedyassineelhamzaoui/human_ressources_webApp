@@ -33,3 +33,4 @@ Run the following Maven commands to clean and build the project: mvn clean insta
 
 ## Folder Structure
 
+![Image Alt Text](file:///C:\Users\ahmed\Downloads/project_structure.jpg)
