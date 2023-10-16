@@ -2,12 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   <display-name>human_ressources</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -18,5 +13,15 @@
   <servlet-mapping>
     <servlet-name>WelcomeServlet</servlet-name>
     <url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeServlet</display-name>
+    <servlet-name>EmployeServlet</servlet-name>
+    <servlet-class>com.app.controller.EmployeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeServlet</servlet-name>
+    <url-pattern>/EmployeServlet</url-pattern>
   </servlet-mapping>
 </web-app>
