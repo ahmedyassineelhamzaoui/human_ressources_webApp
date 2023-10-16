@@ -1,9 +1,7 @@
 package com.app.entity;
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class User {
@@ -122,6 +120,14 @@ public class User {
 
 		public void setAssignedTasks(List<Task> assignedTasks) {
 			this.assignedTasks = assignedTasks;
+		}
+
+		public Role getRole() {
+			return role;
+		}
+
+		public void setRole(Role role) {
+			this.role = role;
 		}
 
 }
