@@ -1,7 +1,9 @@
 package com.app.entity;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -17,6 +19,7 @@ public class User {
 	    private String lastName;
 	    private String email;
 	    private String position;
+	    @Column(nullable=true)
 	    private Date hireDate;
 
 
@@ -28,6 +31,10 @@ public class User {
 
 	    @OneToMany(mappedBy = "assignedUser")
 	    private List<Task> assignedTasks;
+	    
+	    @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "role_id")
+	    private Role role;
 
 		public Long getId() {
 			return id;
