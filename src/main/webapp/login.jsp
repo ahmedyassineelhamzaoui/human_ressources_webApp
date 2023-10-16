@@ -29,11 +29,11 @@
                 <form>
                   <div class="form-group">
                     <label>Username or email *</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" name="usernemail" class="form-control p_input">
                   </div>
                   <div class="form-group">
                     <label>Password *</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" name="password" class="form-control p_input">
                   </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
