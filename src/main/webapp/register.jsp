@@ -25,24 +25,42 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-left mb-3">Register</h3>
+                <h3 class="card-title text-left mb-3 text-center">Register</h3>
                 <form>
-                  <div class="form-group">
+                <div class="d-flex justify-content-center align-items-center">
+                <div class="form-group">
+                    <label>firstname</label>
+                    <input type="text" name="first_name" class="form-control p_input">
+                  </div>
+                  <div class="form-group ml-2">
+                    <label>last name</label>
+                    <input type="text" name="last_name" class="form-control p_input">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control p_input">
+                    <input type="text" name="user_name" class="form-control p_input">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group ml-2">
                     <label>Email</label>
-                    <input type="email" class="form-control p_input">
+                    <input type="email" name="email" class="form-control p_input">
                   </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control p_input">
+                    <input type="password" name="password" class="form-control p_input">
                   </div>
+                  <div class="form-group ml-2">
+                    <label>Confirm password</label>
+                    <input type="password" name="confirm_password" class="form-control p_input">
+                  </div>
+                </div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"> Remember me </label>
+                      <input type="checkbox" class="form-check-input" value="no">
+                      <label class="form-check-label"> Remember me </label>
                     </div>
                     <a href="#" class="forgot-pass">Forgot password</a>
                   </div>
