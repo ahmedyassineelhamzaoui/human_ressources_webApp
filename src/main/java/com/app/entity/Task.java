@@ -13,6 +13,6 @@ public class Task {
     private String status;
 
     @ManyToOne
-    private Employe assignedEmployee;
+    private User assignedUser;
 
 }

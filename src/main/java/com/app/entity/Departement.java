@@ -17,18 +17,18 @@ public class Departement {
     private String headOfDepartment;
 
     @OneToMany(mappedBy = "department")
-    private List<Employe> employees;
+    private List<User> users;
 
 	public Departement() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Departement(String name, String description, String headOfDepartment, List<Employe> employees) {
+	public Departement(String name, String description, String headOfDepartment, List<User> users) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.headOfDepartment = headOfDepartment;
-		this.employees = employees;
+		this.users = users;
 	}
 
 	public Long getId() {
@@ -63,18 +63,18 @@ public class Departement {
 		this.headOfDepartment = headOfDepartment;
 	}
 
-	public List<Employe> getEmployees() {
-		return employees;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setEmployees(List<Employe> employees) {
-		this.employees = employees;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	@Override
 	public String toString() {
 		return "Departement [id=" + id + ", name=" + name + ", description=" + description + ", headOfDepartment="
-				+ headOfDepartment + ", employees=" + employees + "]";
+				+ headOfDepartment + ", employees=" + users + "]";
 	}
 
 }

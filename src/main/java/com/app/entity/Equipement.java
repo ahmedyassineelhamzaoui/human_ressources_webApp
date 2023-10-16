@@ -15,5 +15,5 @@ public class Equipement {
 
 
     @ManyToOne
-    private Employe assignedEmployee;
+    private User assignedUser;
 }
