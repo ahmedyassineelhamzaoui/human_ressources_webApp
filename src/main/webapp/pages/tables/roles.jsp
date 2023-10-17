@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -43,7 +43,7 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th> Id </th>
+                            <th> <%=request.getAttribute("name") %> </th>
                             <th> Role name </th>
                             <th> Action </th>
                           </tr>
