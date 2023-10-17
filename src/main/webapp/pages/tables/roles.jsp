@@ -67,7 +67,7 @@
 	             <div class="card">
 	                 <div class="card-body">
 	                   <h4 class="card-title">Add Role</h4>
-	                   <form class="forms-sample" action="../../RoleServlet" method="post">
+	                   <form class="forms-sample" action="RoleServlet" method="post">
 	                     <div class="form-group">
 	                       <label >Role Name</label>
 	                       <input type="text" class="form-control" name="role" placeholder="Role Name">

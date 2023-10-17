@@ -9,27 +9,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.app.entity.Role;
-//import com.app.repository.RoleRepository;
-//import com.app.service.RoleService;
+import com.app.service.RoleService;
 
 
 public class RoleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private RoleService roleService;
-//	    public RoleServlet() {
-//	            super();
-//	    }
-//	    public void init() throws ServletException {
-//	        super.init();
-//	        roleService = new RoleService();
-//	    }
+	private RoleService roleService;
+	    public RoleServlet() {
+	            super();
+	    }
+	    public void init() throws ServletException {
+	        super.init();
+	        this.roleService = new RoleService();
+	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        String roleName = request.getParameter("role");
 	        Role role = new Role();
 	        role.setName(roleName);
 
-	       // roleService.createRole(role);
+	        roleService.createRole(role);
 
 	        PrintWriter pw = response.getWriter();
 	        pw.print("Role created successfully");
