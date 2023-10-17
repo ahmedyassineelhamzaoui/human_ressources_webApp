@@ -1,4 +1,10 @@
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@ page import="com.app.service.RoleService" %>
+<%@ page import="com.app.entity.Role" %>
+<%@ page import="com.app.util.HibernateUtil" %>
+<%@ page import="jakarta.persistence.EntityManagerFactory" %>
+<%@ page import="jakarta.persistence.EntityManager" %>
+<%@ page import="java.util.List" %>
  <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,6 +42,12 @@
 				</div>
             </div>
            <%} %>
+           <%
+            EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+	        EntityManager entityManager = entityManagerFactory.createEntityManager();
+	        RoleService roleService = new RoleService(entityManager);			
+			List<Role> roles = roleService.getAllRoles();
+			%>
               <div class="col-lg-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -43,17 +55,22 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th> <%=request.getAttribute("name") %> </th>
+                            <th> Id </th>
                             <th> Role name </th>
                             <th> Action </th>
                           </tr>
                         </thead>
                         <tbody>
+                         <% for (Role role : roles) { 
+						 %>
                           <tr>
-                            <td> 1 </td>
-                            <td> role 1 </td>
-                            <td> May 15, 2015 </td>
+                             <td><%= role.getId() %></td>
+                             <td><%= role.getName() %></td>
+                             <td> May 15, 2015 </td>
                           </tr>
+                           <%
+					            }
+					        %>
                         </tbody>
                       </table>
                     </div>
