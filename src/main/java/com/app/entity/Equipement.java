@@ -13,7 +13,7 @@ public class Equipement {
     private Date maintenanceDate;
     private String status;
 
-
     @ManyToOne
+    @JoinColumn(name = "assigned_user_id")
     private User assignedUser;
 }

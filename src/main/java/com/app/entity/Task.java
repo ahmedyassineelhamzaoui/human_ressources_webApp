@@ -13,6 +13,7 @@ public class Task {
     private String status;
 
     @ManyToOne
+    @JoinColumn(name = "assigned_user_id")
     private User assignedUser;
 
 }

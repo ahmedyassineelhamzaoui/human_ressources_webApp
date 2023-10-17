@@ -16,23 +16,26 @@ public class User {
 	    private String firstName;
 	    private String lastName;
 	    private String email;
+	    @Column(nullable=true)
 	    private String position;
 	    @Column(nullable=true)
 	    private Date hireDate;
 
 
+	   
+	    @ManyToOne
+	    @JoinColumn(name = "department_id")
+	    private Departement department;
+
+	    @ManyToOne
+	    @JoinColumn(name = "role_id")
+	    private Role role;
+
 	    @OneToMany(mappedBy = "assignedUser")
 	    private List<Equipement> assignedEquipment;
 
-	    @ManyToOne
-	    private Departement department;
-
 	    @OneToMany(mappedBy = "assignedUser")
 	    private List<Task> assignedTasks;
-	    
-	    @ManyToOne(fetch = FetchType.LAZY)
-	    @JoinColumn(name = "role_id")
-	    private Role role;
 
 		public Long getId() {
 			return id;

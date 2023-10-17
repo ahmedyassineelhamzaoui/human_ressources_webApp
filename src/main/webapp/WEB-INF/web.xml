@@ -34,4 +34,14 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoleServlet</display-name>
+    <servlet-name>RoleServlet</servlet-name>
+    <servlet-class>com.app.controller.RoleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoleServlet</servlet-name>
+    <url-pattern>/RoleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

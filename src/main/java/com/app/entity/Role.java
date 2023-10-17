@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -19,8 +20,8 @@ public class Role {
 	private Long id;
 	private String name;
 	
-	@OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
-	private Set<User> users;
+	@OneToMany(mappedBy = "role")
+    private List<User> users;
 	
 	public Long getId() {
 		return id;

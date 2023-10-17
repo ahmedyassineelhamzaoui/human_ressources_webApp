@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -44,8 +45,17 @@ public class UserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        // Create an EntityManager (per transaction or request)
-	        EntityManager entityManager = 	HibernateUtil.getEntityManagerFactory().createEntityManager();
+			String userName = request.getParameter("userName");
+	        String firstName = request.getParameter("firstName");
+	        String lastName = request.getParameter("lastName");
+	        String email = request.getParameter("email");
+	        String password = request.getParameter("password");
+	        String position = request.getParameter("position");
+	        String role_id = request.getParameter("role");
+	        String departement_id = request.getParameter("departement");
+	        PrintWriter pw = response.getWriter();
+	        pw.println(userName + firstName + lastName + email +password + position + role_id + departement_id);
+	        EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 
 	        // Begin a transaction
 	        entityManager.getTransaction().begin();
@@ -53,43 +63,28 @@ public class UserServlet extends HttpServlet {
 	        try {
 	            // Create a new User
 	            User newUser = new User();
-	            // Create a new Role
-	            Role newRole = new Role();
-	            newRole.setName(request.getParameter("user"));
-
-	            // Create a new Departement
-	            Departement newDepartement = new Departement();
 	            
-	            newUser.setDepartment(newDepartement);
+	            newUser.setUsername("newuser");
+	            newUser.setPassword("password");
+	            newUser.setFirstName("John");
+	            newUser.setLastName("Doe");
+	            newUser.setEmail("john.doe@example.com");
+	            newUser.setPosition("Developer");
 
-	            // Set the hireDate in the newEmployee object
-	            
-	            newDepartement.setName("info");
-	            newUser.setFirstName("ahmed");
-	            newUser.setUsername("yassine09");
-	            newUser.setPassword("error404@");
-	            newUser.setLastName("yassine");
-	            newUser.setEmail("ahmed@gmail.com");
-	            newUser.setPosition("position1");
-
-	           
-
-	            // Associate User with Role and Departement
-	            newUser.setRole(newRole);
+	            Role role = entityManager.find(Role.class, 1); 
+	            Departement department = entityManager.find(Departement.class, 1); 
+	            newUser.setRole(role);
+	            newUser.setDepartment(department);
 
 	            // Persist the User to the database
 	            entityManager.persist(newUser);
 
 	            // Commit the transaction
 	            entityManager.getTransaction().commit();
-
-	            // Redirect to a success page or send a response
-	            response.sendRedirect("index.jsp");
 	        } catch (Exception e) {
 	            // Handle exceptions (e.g., validation errors)
-	        	System.out.println(e.getMessage());
 	            entityManager.getTransaction().rollback();
-	            response.sendRedirect("error.jsp");
+	            e.printStackTrace();
 	        } finally {
 	            // Close the EntityManager and the EntityManagerFactory
 	            entityManager.close();
