@@ -28,6 +28,13 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
+            <% if(request.getParameter("success") !=null) { %>
+            <div id="successMessage" class="col-lg-12 grid-margin stretch-card">
+	            <div style="width:100%" class="alert alert-success alert-dismissible fade show" role="alert">
+				  <strong class="mr-2">Success!</strong><%=request.getParameter("success") %>
+				</div>
+            </div>
+           <%} %>
               <div class="col-lg-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -112,7 +119,7 @@
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
-    
+    <script src="../../assets/js/roleScript.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
