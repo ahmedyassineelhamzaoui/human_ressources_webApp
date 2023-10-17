@@ -3,7 +3,7 @@
   <display-name>human_ressources</display-name>
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list>   
   <servlet>
     <description></description>
     <display-name>WelcomeServlet</display-name>

@@ -67,10 +67,16 @@
 	             <div class="card">
 	                 <div class="card-body">
 	                   <h4 class="card-title">Add Role</h4>
-	                   <form class="forms-sample" action="RoleServlet" method="post">
+	                   <form class="forms-sample" action="../../RoleServlet" method="post">
 	                     <div class="form-group">
 	                       <label >Role Name</label>
 	                       <input type="text" class="form-control" name="role" placeholder="Role Name">
+	                       
+	                      <% if(request.getParameter("error")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("error") %>
+	                       </p>
+	                       <% } %>
 	                     </div>
 	                     <button type="submit" class="btn btn-primary mr-2">Save</button>
 	                   </form>
