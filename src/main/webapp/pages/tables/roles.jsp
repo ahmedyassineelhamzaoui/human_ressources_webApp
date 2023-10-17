@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,16 +54,6 @@
                             <td> role 1 </td>
                             <td> May 15, 2015 </td>
                           </tr>
-                          <tr>
-                            <td> 2 </td>
-                            <td> role 2 </td>
-                            <td> May 15, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 3 </td>
-                            <td> role 3 </td>
-                            <td> April 05, 2015 </td>
-                          </tr>    
                         </tbody>
                       </table>
                     </div>
