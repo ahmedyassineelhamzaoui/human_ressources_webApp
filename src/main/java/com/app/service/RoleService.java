@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.util.List;
+
 import com.app.entity.Role;
 import com.app.repository.RoleRepository;
 import com.app.util.HibernateUtil;
@@ -16,6 +18,9 @@ public class RoleService {
 
     public void createRole(Role role) {
         roleRepository.saveRole(role);
+    }
+    public List<Role> getAllRoles() {
+        return roleRepository.getAllRoles();
     }
     
 }
