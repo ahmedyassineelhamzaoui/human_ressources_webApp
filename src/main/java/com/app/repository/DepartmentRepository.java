@@ -1,7 +1,7 @@
 package com.app.repository;
 
 import com.app.entity.Departement;
-
+import java.util.List;
 import jakarta.persistence.EntityManager;
 
 public class DepartmentRepository {
@@ -25,5 +25,8 @@ public class DepartmentRepository {
 		}finally {
 			entityManager.close();
 		}
+	}
+	public List<Departement> getAllDepartments(){
+		return entityManager.createQuery("SELECT d FROM Departement d",Departement.class).getResultList();
 	}
 }
