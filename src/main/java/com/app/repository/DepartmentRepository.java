@@ -29,4 +29,9 @@ public class DepartmentRepository {
 	public List<Departement> getAllDepartments(){
 		return entityManager.createQuery("SELECT d FROM Departement d",Departement.class).getResultList();
 	}
+	public void deleteDepartment() {
+		entityManager.getTransaction().begin();
+		entityManager.remove(entityManager);
+		entityManager.getTransaction().commit();
+	}
 }
