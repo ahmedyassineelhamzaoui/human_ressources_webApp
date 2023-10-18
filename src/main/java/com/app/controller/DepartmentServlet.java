@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.persistence.*;
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -37,14 +38,19 @@ public class DepartmentServlet extends HttpServlet {
 			Departement departmentToDelete = entityManager.find(Departement.class, departmentIdToDelete);
 			if(departmentToDelete !=null) {
 				departmentService.removeDepartment(departmentToDelete);
+				HttpSession session = request.getSession();
+		        session.setAttribute("success", "department deleted successfully");
+		        response.sendRedirect(request.getContextPath() + "/pages/tables/DepartmentServlet");
 			}
 			
+		}else {
+			List<Departement> departements = departmentService.getAllDepartment();
+			request.setAttribute("departements", departements);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
+		    dispatcher.forward(request, response);
 		}
 		
-		List<Departement> departements = departmentService.getAllDepartment();
-		request.setAttribute("departements", departements);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
-	    dispatcher.forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
