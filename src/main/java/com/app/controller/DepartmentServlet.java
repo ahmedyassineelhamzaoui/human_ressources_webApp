@@ -11,6 +11,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 import com.app.entity.Departement;
+import com.app.service.DepartmentService;
 import com.app.util.HibernateUtil;
 
 
@@ -50,11 +51,12 @@ public class DepartmentServlet extends HttpServlet {
 		if(headOfDepartment.trim().isEmpty()) {
 			response.sendRedirect("pages/tables/roles.jsp?errorheadOfDepartment="+ URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8));
 		}else {
-	
+			DepartmentService departmentService = new DepartmentService(entityManager);
 			Departement d = new Departement();
 			d.setName(name);
 			d.setHeadOfDepartment(headOfDepartment);
 			d.setDescription(description);
+			departmentService.addDepartment(d);
 		}
 	}
 
