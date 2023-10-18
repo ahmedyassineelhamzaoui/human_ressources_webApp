@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import com.app.entity.Departement;
 import com.app.service.DepartmentService;
@@ -27,6 +28,15 @@ public class DepartmentServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EntityManagerFactory entityManagaerFactory = HibernateUtil.getEntityManagerFactory();
+		EntityManager entityManager = entityManagaerFactory.createEntityManager();
+		DepartmentService departmentService = new DepartmentService(entityManager);
+		
+		List<Departement> departements = departmentService.getAllDepartment();
+		request.setAttribute("departements", departements);
+		for(Departement d:departements) {
+			System.out.println(d.toString());
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
 	    dispatcher.forward(request, response);
 	}
