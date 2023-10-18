@@ -25,9 +25,8 @@ public class RoleServlet extends HttpServlet {
 	    }
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        String name = "yassine";
-	        request.setAttribute("name", name);
-	        request.getRequestDispatcher("/pages/tables/roles.jsp").forward(request, response);
+	    	 String action = request.getServletPath();
+	    	 System.out.println(action);
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
