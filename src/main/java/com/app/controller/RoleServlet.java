@@ -37,7 +37,8 @@ public class RoleServlet extends HttpServlet {
 
 	            if (roleToDelete != null) {
 	                roleService.deleteRole(roleToDelete);
-	                response.sendRedirect(request.getContextPath() + "/success.jsp");
+	                String successMessage="role {"+roleToDelete.getName()+"} deleted successfuly";
+		            response.sendRedirect("pages/tables/roles.jsp?success=" + URLEncoder.encode(successMessage, StandardCharsets.UTF_8));
 	            } else {
 	                response.sendRedirect(request.getContextPath() + "/error.jsp");
 	            }
