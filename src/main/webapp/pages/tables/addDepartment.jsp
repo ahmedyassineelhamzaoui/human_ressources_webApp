@@ -35,7 +35,7 @@
              <div class="card">
                <div class="card-body">
                  <h4 class="card-title">Add Department Form</h4>
-                 <form class="forms-sample" action="../../UserServlet" method="post">
+                 <form class="forms-sample" action="../../DepartmentServlet" method="post">
                     <div class="form-group">
                       <label >Name</label>
                       <input type="text" class="form-control" name="name" placeholder="name">
