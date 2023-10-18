@@ -18,4 +18,7 @@ public class DepartmentService {
 	public List<Departement> getAllDepartment(){
 		return departmentRepository.getAllDepartments();
 	}
+	public void removeDepartment(Departement department) {
+		departmentRepository.deleteDepartment(department);
+	}
 }
