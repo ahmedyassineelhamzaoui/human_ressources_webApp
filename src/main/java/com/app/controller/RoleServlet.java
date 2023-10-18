@@ -25,9 +25,7 @@ public class RoleServlet extends HttpServlet {
 	    }
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        String action = request.getParameter("action");
-            PrintWriter pw = response.getWriter();
-            
+	        String action = request.getParameter("action");            
             if ("deleteRole".equals(action)) {
 	            long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
 
