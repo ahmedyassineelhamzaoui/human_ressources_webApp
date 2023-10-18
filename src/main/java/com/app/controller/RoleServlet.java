@@ -25,8 +25,25 @@ public class RoleServlet extends HttpServlet {
 	    }
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    	 String action = request.getServletPath();
-	    	 System.out.println(action);
+	        String action = request.getParameter("action");
+            PrintWriter pw = response.getWriter();
+            
+            if ("deleteRole".equals(action)) {
+	            long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
+
+	            EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+	            EntityManager entityManager = entityManagerFactory.createEntityManager();
+	            RoleService roleService = new RoleService(entityManager);
+
+	            Role roleToDelete = entityManager.find(Role.class, roleIdToDelete);
+
+	            if (roleToDelete != null) {
+	                roleService.deleteRole(roleToDelete);
+	                response.sendRedirect(request.getContextPath() + "/success.jsp");
+	            } else {
+	                response.sendRedirect(request.getContextPath() + "/error.jsp");
+	            }
+	        }
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
