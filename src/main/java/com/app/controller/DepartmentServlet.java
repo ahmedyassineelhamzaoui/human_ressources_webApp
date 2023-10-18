@@ -38,9 +38,8 @@ public class DepartmentServlet extends HttpServlet {
 			Departement departmentToDelete = entityManager.find(Departement.class, departmentIdToDelete);
 			if(departmentToDelete !=null) {
 				departmentService.removeDepartment(departmentToDelete);
-				HttpSession session = request.getSession();
-		        session.setAttribute("success", "department deleted successfully");
-		        response.sendRedirect(request.getContextPath() + "/pages/tables/DepartmentServlet");
+		        String success = "department deleted successfully";
+		        response.sendRedirect(request.getContextPath() + "/pages/tables/DepartmentServlet?success="+URLEncoder.encode(success,StandardCharsets.UTF_8));
 			}
 			
 		}else {

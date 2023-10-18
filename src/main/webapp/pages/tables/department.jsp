@@ -42,13 +42,13 @@
 				</div>
             </div>
            <%} %>
-           <% if(session.getAttribute("success") !=null) { %>
+           <%-- <% if(session.getAttribute("success") !=null) { %>
             <div id="successMessage" class="col-lg-12 grid-margin stretch-card">
 	            <div style="width:100%" class="alert alert-success alert-dismissible fade show" role="alert">
 				  <strong class="mr-2">Success!  </strong><%=session.getAttribute("success") %>
 				</div>
             </div>
-           <%} %>
+           <%} %> --%>
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
