@@ -50,7 +50,7 @@ public class DepartmentServlet extends HttpServlet {
 			response.sendRedirect("addDepartment.jsp?errorName="+ URLEncoder.encode(errorName,StandardCharsets.UTF_8));
 		}else
 		if(description.trim().isEmpty()) {
-			response.sendRedirect("department.jsp?errorDescription="+ URLEncoder.encode(errorDescription, StandardCharsets.UTF_8));
+			response.sendRedirect("addDepartment.jsp?errorDescription="+ URLEncoder.encode(errorDescription, StandardCharsets.UTF_8));
 		}else
 		if(headOfDepartment.trim().isEmpty()) {
 			response.sendRedirect("department.jsp?errorheadOfDepartment="+ URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8));

@@ -52,6 +52,9 @@
                         <label >Description</label>
                         <textarea class="form-control" name="description"  rows="4"></textarea>
                    </div>
+                   <%if(request.getParameter("errorDescription") !=null){ %>
+                      <p class="fs-3 text-danger"><%=request.getParameter("errorDescription") %> </p>
+                   <%} %>
                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
                    <button class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
                  </form>
