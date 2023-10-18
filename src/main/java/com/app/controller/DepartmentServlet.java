@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -42,6 +43,9 @@ public class DepartmentServlet extends HttpServlet {
 		String errorDescription = "Description can't be empty";
 		String errorheadOfDepartment = "headOfDepartment can't be empty";
 		
+		RequestDispatcher dispacher = null;
+
+		
 		if(name.trim().isEmpty()) {
 			response.sendRedirect("pages/tables/department.jsp?errorName="+ URLEncoder.encode(errorName,StandardCharsets.UTF_8));
 		}else
@@ -51,12 +55,16 @@ public class DepartmentServlet extends HttpServlet {
 		if(headOfDepartment.trim().isEmpty()) {
 			response.sendRedirect("pages/tables/roles.jsp?errorheadOfDepartment="+ URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8));
 		}else {
+			
+			dispacher = request.getRequestDispatcher("department.jsp");
 			DepartmentService departmentService = new DepartmentService(entityManager);
 			Departement d = new Departement();
 			d.setName(name);
 			d.setHeadOfDepartment(headOfDepartment);
 			d.setDescription(description);
 			departmentService.addDepartment(d);
+			request.setAttribute("success", "department created successfuly");
+			dispacher.forward(request, response);
 		}
 	}
 

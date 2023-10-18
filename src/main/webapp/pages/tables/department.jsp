@@ -33,6 +33,13 @@
                 <a class="nav-link btn btn-success create-new-button"  href="addDepartment.jsp">+ Create New Department</a>
             </div>
             <div class="row">
+            <% if(request.getAttribute("success") !=null) { %>
+            <div id="successMessage" class="col-lg-12 grid-margin stretch-card">
+	            <div style="width:100%" class="alert alert-success alert-dismissible fade show" role="alert">
+				  <strong class="mr-2">Success!  </strong><%=request.getAttribute("success") %>
+				</div>
+            </div>
+           <%} %>
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
