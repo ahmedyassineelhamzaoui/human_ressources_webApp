@@ -34,9 +34,6 @@ public class DepartmentServlet extends HttpServlet {
 		
 		List<Departement> departements = departmentService.getAllDepartment();
 		request.setAttribute("departements", departements);
-		for(Departement d:departements) {
-			System.out.println(d.toString());
-		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
 	    dispatcher.forward(request, response);
 	}

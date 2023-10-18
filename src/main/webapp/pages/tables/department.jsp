@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.app.entity.Departement" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,19 +57,20 @@
                           </tr>
                         </thead>
                         <tbody>
+                        <% List<Departement> departments = (List<Departement>) request.getAttribute("departements");
+                        for(Departement d:departments){ %>
                           <tr>
+                            <td><%=d.getId() %></td>
                             <td class="py-1">
-                              <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
+                              <%=d.getDescription() %>
                             </td>
-                            <td> Herman Beck </td>
+                            <td><%=d.getHeadOfDepartment() %> </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                              <%=d.getName() %>
                             </td>
-                            <td> $ 77.99 </td>
                             <td> May 15, 2015 </td>
                           </tr>
+                         <% } %>
                         </tbody>
                       </table>
                     </div>
