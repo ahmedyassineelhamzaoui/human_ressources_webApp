@@ -23,5 +23,8 @@ public class RoleService {
     public List<Role> getAllRoles() {
         return roleRepository.getAllRoles();
     }
+    public void deleteRole(Role role) {
+         roleRepository.removeRole(role);
+    }
     
 }
