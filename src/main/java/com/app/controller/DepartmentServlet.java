@@ -31,6 +31,15 @@ public class DepartmentServlet extends HttpServlet {
 		EntityManagerFactory entityManagaerFactory = HibernateUtil.getEntityManagerFactory();
 		EntityManager entityManager = entityManagaerFactory.createEntityManager();
 		DepartmentService departmentService = new DepartmentService(entityManager);
+		String action=request.getParameter("action");
+		if("deleteDepartment".equals(action)) {
+			long departmentIdToDelete = Long.parseLong(request.getParameter("id"));
+			Departement departmentToDelete = entityManager.find(Departement.class, departmentIdToDelete);
+			if(departmentToDelete !=null) {
+				departmentService.removeDepartment(departmentToDelete);
+			}
+			
+		}
 		
 		List<Departement> departements = departmentService.getAllDepartment();
 		request.setAttribute("departements", departements);
