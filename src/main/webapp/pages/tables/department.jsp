@@ -30,7 +30,7 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="d-flex justify-content-end align-items-center mb-2">
-                <a class="nav-link btn btn-success create-new-button"  href="addUser.jsp">+ Create New Department</a>
+                <a class="nav-link btn btn-success create-new-button"  href="addDepartment.jsp">+ Create New Department</a>
             </div>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
