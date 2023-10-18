@@ -46,8 +46,10 @@
                     <div class="form-group">
                       <label >Head Of Department</label>
                       <input type="text" class="form-control" name="headOfDepartment" placeholder="Head Of Department">
-                      
                     </div>
+                    <%if(request.getParameter("errorheadOfDepartment") !=null){ %>
+                      <p class="fs-3 text-danger"><%=request.getParameter("errorheadOfDepartment") %> </p>
+                    <%} %>
                    <div class="form-group">
                         <label >Description</label>
                         <textarea class="form-control" name="description"  rows="4"></textarea>
