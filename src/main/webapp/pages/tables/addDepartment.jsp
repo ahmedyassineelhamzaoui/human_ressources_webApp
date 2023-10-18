@@ -39,13 +39,14 @@
                     <div class="form-group">
                       <label >Name</label>
                       <input type="text" class="form-control" name="name" placeholder="name">
+                      <%if(request.getParameter("errorName") !=null){ %>
+                      <p class="fs-3 text-danger"><%=request.getAttribute("errorName") %> </p>
+                      <%} %>
                     </div>
                     <div class="form-group">
                       <label >Head Of Department</label>
                       <input type="text" class="form-control" name="headOfDepartment" placeholder="Head Of Department">
-                      <%if(request.getParameter("errorName") !=null){ %>
-                      <p class=""><%=request.getAttribute("errorName") %> </p>
-                      <%} %>
+                      
                     </div>
                    <div class="form-group">
                         <label >Description</label>
