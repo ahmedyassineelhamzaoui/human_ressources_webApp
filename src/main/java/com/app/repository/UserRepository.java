@@ -33,9 +33,10 @@ public class UserRepository {
 		return entityManager.createQuery("SELECT u FROM User u",User.class).getResultList();
 		
 	}
-	public User findByUserLogin(String username) {
-		TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username",User.class);
-		query.setParameter("username",username);
+	public User findByUserLogin(String userLogin) {
+		TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username OR u.email = :email",User.class);
+		query.setParameter("username",userLogin);
+		query.setParameter("email", userLogin);
 		try {
 	        return query.getSingleResult();
 	    } catch (NoResultException e) {
