@@ -27,12 +27,13 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
+              <% if(request.getParameter("error") !=null){ %>
                <div id="alert-border-2" class="flex items-center p-4 mb-4  border-t-4  text-red-400 bg-gray-800 border-red-800" role="alert">
 				    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
 				      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
 				    </svg>
 				    <div class="ml-3 text-sm font-medium">
-				      A simple danger alert with an Give it 
+				      <%=request.getParameter("error") %>
 				    </div>
 				    <button type="button" class="ml-auto -mx-1.5 -my-1.5  rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 bg-gray-800 text-red-400 hover:bg-gray-700"  data-dismiss-target="#alert-border-2" aria-label="Close">
 				      <span class="sr-only">Dismiss</span>
@@ -41,6 +42,7 @@
 				      </svg>
 				    </button>
 				</div>
+				<% } %>
                 <h3 class="card-title text-left mb-3">Login</h3>
                 <form action="LoginServlet" method="post">
                   <div class="form-group">
