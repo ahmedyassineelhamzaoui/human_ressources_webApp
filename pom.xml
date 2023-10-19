@@ -15,6 +15,12 @@
 	    <artifactId>jbcrypt</artifactId>
 	    <version>0.4</version>
 	</dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
 
 	<dependency>
       <groupId>org.hibernate</groupId>
