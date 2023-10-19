@@ -2,6 +2,7 @@ package com.app.repository;
 
 import jakarta.persistence.EntityManager;
 import com.app.entity.User;
+import java.util.List;
 public class UserRepository {
 
 	private final EntityManager entityManager;
@@ -24,5 +25,8 @@ public class UserRepository {
 		}
 		
 		
+	}
+	public List<User> getAllUsers(){
+		return entityManager.createQuery("SELECT u FROM user u",User.class).getResultList();
 	}
 }
