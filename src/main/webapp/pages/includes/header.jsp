@@ -47,7 +47,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="./roles.jsp">
+            <a class="nav-link" href="../../pages/tables/RoleServlet">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/forms/basic_elements.html">
+            <a class="nav-link" href="../../pages/tables/EquipmentServlet">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/tables/basic-table.jsp">
+            <a class="nav-link" href="../../pages/tables/UserServlet">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -71,7 +71,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/tables/department.jsp">
+            <a class="nav-link" href="../../pages/tables/DepartmentServlet">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
@@ -79,7 +79,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="../../pages/icons/mdi.html">
+            <a class="nav-link" href="../../pages/tables/TaskServlet">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
