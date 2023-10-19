@@ -75,7 +75,7 @@
 	                      RoleService rs = new RoleService(entityManager);
 	                      List<Role> roles = rs.getAllRoles();
 	                      for(Role r:roles){ %>
-	                       <option><%=r.getName() %></option>
+	                       <option value="<%=r.getId() %>"><%=r.getName() %></option>
 	                    <% } %>
                      </select>
                    </div>
@@ -87,7 +87,7 @@
                       List<Departement> departments = ds.getAllDepartment();
                       for(Departement d:departments){
 	                  %>
-	                      <option><%=d.getName() %></option>
+	                      <option value="<%=r.getId() %>"><%=d.getName() %></option>
 	                  <%} %>
                      </select>
                    </div>
