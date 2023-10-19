@@ -1,6 +1,7 @@
 package com.app.repository;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 
 import com.app.entity.User;
@@ -35,6 +36,10 @@ public class UserRepository {
 	public User findByUsername(String username) {
 		TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username",User.class);
 		query.setParameter("username",username);
-		return query.getSingleResult();
+		try {
+	        return query.getSingleResult();
+	    } catch (NoResultException e) {
+	        return null; 
+	    }
 	}
 }
