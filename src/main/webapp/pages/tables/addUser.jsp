@@ -1,3 +1,8 @@
+<%@ page import="com.app.entity.Role" %>
+<%@ page import="com.app.service.RoleService" %>
+<%@ page import="com.app.util.HibernateUtil" %>
+<%@ page import="jakarta.persistence.*" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,15 +67,21 @@
                    <div class="col-6 form-group">
                      <label >Role</label>
                      <select class="form-control" name="role">
-                       <option>Male</option>
-                       <option>Female</option>
+                       <%
+	                      EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+	                      EntityManager entityManager = entityManagerFactory.createEntityManager();
+	                      RoleService rs = new RoleService(entityManager);
+	                      List<Role> roles = rs.getAllRoles();
+	                      for(Role r:roles){ %>
+	                       <option><%=r.getName() %></option>
+	                    <% } %>
                      </select>
                    </div>
                    <div class="col-6 form-group">
                      <label for="exampleSelectGender">Department</label>
                      <select class="form-control" name="departement" >
-                       <option>Male</option>
-                       <option>Female</option>
+                      <option>Male</option>
+                      <option>Female</option>
                      </select>
                    </div>
                    </div>
