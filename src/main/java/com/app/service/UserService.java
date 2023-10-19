@@ -2,7 +2,6 @@ package com.app.service;
 
 import com.app.repository.UserRepository;
 import jakarta.persistence.*;
-import com.app.repository.UserRepository;
 import com.app.entity.User;
 public class UserService {
 
