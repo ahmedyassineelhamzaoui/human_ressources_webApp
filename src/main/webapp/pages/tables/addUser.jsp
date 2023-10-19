@@ -45,7 +45,11 @@
                     <div class="col-6 form-group">
                       <label >FirstName</label>
                       <input type="text" class="form-control" name="firstName" placeholder="FirstName">
-                      
+                      <% if(request.getParameter("firstNameError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("firstNameError") %>
+	                       </p>
+	                  <% } %>
                     </div>
                     <div class="col-6 form-group">
                       <label >LastName</label>

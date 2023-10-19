@@ -73,7 +73,7 @@ public class UserServlet extends HttpServlet {
         }
        
         if(!err1.isEmpty() || !err2.isEmpty() || !err3.isEmpty() || !err4.isEmpty() || !err5.isEmpty() || !err6.isEmpty()) {
-        	response.sendRedirect("addDepartment.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
+        	response.sendRedirect("pages/tables/addDepartment.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
         }else {
         	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
             UserService userService = new UserService(entityManager);
