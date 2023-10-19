@@ -3,6 +3,8 @@
 <%@ page import="com.app.util.HibernateUtil" %>
 <%@ page import="jakarta.persistence.*" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.app.entity.Departement" %>
+<%@ page import="com.app.service.DepartmentService" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,8 +82,13 @@
                    <div class="col-6 form-group">
                      <label for="exampleSelectGender">Department</label>
                      <select class="form-control" name="departement" >
-                      <option>Male</option>
-                      <option>Female</option>
+                     <% 
+                      DepartmentService ds = new DepartmentService(entityManager);
+                      List<Departement> departments = ds.getAllDepartment();
+                      for(Departement d:departments){
+	                  %>
+	                      <option><%=d.getName() %></option>
+	                  <%} %>
                      </select>
                    </div>
                    </div>
