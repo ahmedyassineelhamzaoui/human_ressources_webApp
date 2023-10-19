@@ -45,6 +45,7 @@
                     <div class="col-6 form-group">
                       <label >FirstName</label>
                       <input type="text" class="form-control" name="firstName" placeholder="FirstName">
+                      
                     </div>
                     <div class="col-6 form-group">
                       <label >LastName</label>

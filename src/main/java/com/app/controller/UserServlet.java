@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 import com.app.entity.Departement;
 import com.app.entity.Role;
@@ -50,26 +52,53 @@ public class UserServlet extends HttpServlet {
         String position = request.getParameter("position");
         String role_id = request.getParameter("role");
         String departement_id = request.getParameter("departement");
-        PrintWriter pw = response.getWriter();
-        pw.println(userName + firstName + lastName + email +password + position + role_id + departement_id);
-        EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
-        UserService userService = new UserService(entityManager);
-        
-        
-        Role role = entityManager.find(Role.class, role_id); 
-        Departement department = entityManager.find(Departement.class, departement_id); 
+        String err1="",err2="",err3="",err4="",err5="",err6="";
+        if(userName.trim().isEmpty()) {
+        	 err3 = "userNameError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        }
+        if(firstName.trim().isEmpty()){
+        	 err4 = "firstNameError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        }
+        if(lastName.trim().isEmpty()){
+        	 err6 = "lastNameError="+ URLEncoder.encode("lastNameError", StandardCharsets.UTF_8);
+        }
+        if(email.trim().isEmpty()){
+        	 err5 = "emailError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        }
+        if(password.trim().isEmpty()){
+        	 err2 = "passwordError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        }
+        if(position.trim().isEmpty()){
+        	 err1 = "positionError="+ URLEncoder.encode("user name can't be null", StandardCharsets.UTF_8);
+        }
+       
+        if(!err1.isEmpty() || !err2.isEmpty() || !err3.isEmpty() || !err4.isEmpty() || !err5.isEmpty() || !err6.isEmpty()) {
+        	response.sendRedirect("addDepartment.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
+        }else {
+        	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+            UserService userService = new UserService(entityManager);
             
             
-        User newUser = new User();
-        newUser.setUsername(userName);
-        newUser.setPassword(password);
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
-        newUser.setEmail(email);
-        newUser.setPosition(position);
-        newUser.setRole(role);
-        newUser.setDepartment(department);
-        userService.addUser(newUser);
+            Role role = entityManager.find(Role.class, role_id); 
+            Departement department = entityManager.find(Departement.class, departement_id); 
+                
+                
+            User newUser = new User();
+            newUser.setUsername(userName);
+            newUser.setPassword(password);
+            newUser.setFirstName(firstName);
+            newUser.setLastName(lastName);
+            newUser.setEmail(email);
+            newUser.setPosition(position);
+            newUser.setRole(role);
+            newUser.setDepartment(department);
+            userService.addUser(newUser);
+        }
+        
+        
+        
+        
+        
 	         
 	}
 
