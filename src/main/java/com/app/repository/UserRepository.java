@@ -1,6 +1,8 @@
 package com.app.repository;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+
 import com.app.entity.User;
 import java.util.List;
 public class UserRepository {
@@ -29,5 +31,10 @@ public class UserRepository {
 	public List<User> getAllUsers(){
 		return entityManager.createQuery("SELECT u FROM User u",User.class).getResultList();
 		
+	}
+	public User findByUsername(String username) {
+		TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username",User.class);
+		query.setParameter("username",username);
+		return query.getSingleResult();
 	}
 }
