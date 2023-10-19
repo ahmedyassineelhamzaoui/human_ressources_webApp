@@ -2,14 +2,14 @@ package com.app.controller;
 
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletException;
-
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 import com.app.entity.Departement;
 import com.app.entity.Role;
@@ -80,6 +80,7 @@ public class UserServlet extends HttpServlet {
         	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
             UserService userService = new UserService(entityManager);
             
+
             
             Role role = entityManager.find(Role.class, role_id); 
             Departement department = entityManager.find(Departement.class, departement_id); 
@@ -87,7 +88,8 @@ public class UserServlet extends HttpServlet {
                 
             User newUser = new User();
             newUser.setUsername(userName);
-            newUser.setPassword(password);
+            String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+            newUser.setPassword(hashedPassword);
             newUser.setFirstName(firstName);
             newUser.setLastName(lastName);
             newUser.setEmail(email);
