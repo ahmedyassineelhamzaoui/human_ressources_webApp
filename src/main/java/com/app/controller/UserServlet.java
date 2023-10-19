@@ -54,26 +54,26 @@ public class UserServlet extends HttpServlet {
         String departement_id = request.getParameter("departement");
         String err1="",err2="",err3="",err4="",err5="",err6="";
         if(userName.trim().isEmpty()) {
-        	 err3 = "userNameError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        	 err3 = "userNameError="+ URLEncoder.encode("username can't be empty", StandardCharsets.UTF_8);
         }
         if(firstName.trim().isEmpty()){
-        	 err4 = "firstNameError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        	 err4 = "firstNameError="+ URLEncoder.encode("first name can't be empty", StandardCharsets.UTF_8);
         }
         if(lastName.trim().isEmpty()){
-        	 err6 = "lastNameError="+ URLEncoder.encode("lastNameError", StandardCharsets.UTF_8);
+        	 err6 = "lastNameError="+ URLEncoder.encode("last name can't be empty", StandardCharsets.UTF_8);
         }
         if(email.trim().isEmpty()){
-        	 err5 = "emailError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        	 err5 = "emailError="+ URLEncoder.encode("eamil can't be empty", StandardCharsets.UTF_8);
         }
         if(password.trim().isEmpty()){
-        	 err2 = "passwordError="+ URLEncoder.encode("positionError", StandardCharsets.UTF_8);
+        	 err2 = "passwordError="+ URLEncoder.encode("password can't be empty", StandardCharsets.UTF_8);
         }
         if(position.trim().isEmpty()){
-        	 err1 = "positionError="+ URLEncoder.encode("user name can't be null", StandardCharsets.UTF_8);
+        	 err1 = "positionError="+ URLEncoder.encode("position can't be empty", StandardCharsets.UTF_8);
         }
        
         if(!err1.isEmpty() || !err2.isEmpty() || !err3.isEmpty() || !err4.isEmpty() || !err5.isEmpty() || !err6.isEmpty()) {
-        	response.sendRedirect("pages/tables/addDepartment.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
+        	response.sendRedirect("pages/tables/addUser.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
         }else {
         	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
             UserService userService = new UserService(entityManager);

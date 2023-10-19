@@ -54,20 +54,40 @@
                     <div class="col-6 form-group">
                       <label >LastName</label>
                       <input type="text" class="form-control"name="lastName" placeholder="LastName">
+                      <% if(request.getParameter("lastNameError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("lastNameError") %>
+	                       </p>
+	                  <% } %>
                     </div>
                  </div>
                    <div class="form-group">
                      <label >Email address</label>
                      <input type="email" class="form-control" name="email"  placeholder="Email">
+                     <% if(request.getParameter("emailError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("emailError") %>
+	                       </p>
+	                  <% } %>
                    </div>
                    <div class="row">
                     <div class="col-6 form-group">
                       <label >UserName</label>
                       <input type="text" class="form-control"  name="userName" placeholder="UserName">
+                      <% if(request.getParameter("firstNameError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("firstNameError") %>
+	                       </p>
+	                  <% } %>
                     </div>
                     <div class="col-6 form-group">
                       <label >Password</label>
                       <input type="password" class="form-control"  name="password" placeholder="Password">
+                      <% if(request.getParameter("passwordError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("passwordError") %>
+	                       </p>
+	                  <% } %>
                     </div>
                    </div>
                    <div class="row">
@@ -101,6 +121,11 @@
                      <label for="exampleInputCity1">Position</label>
                      <input type="text" class="form-control" name="position" id="exampleInputCity1" placeholder="position">
                    </div>
+                   <% if(request.getParameter("positionError")  != null){ %> 
+	                       <p class="text-danger fs-3">
+	                          <%=request.getParameter("positionError") %>
+	                       </p>
+	                  <% } %>
                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
                    <button class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
                  </form>
