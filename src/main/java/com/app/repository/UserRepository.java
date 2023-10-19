@@ -33,7 +33,7 @@ public class UserRepository {
 		return entityManager.createQuery("SELECT u FROM User u",User.class).getResultList();
 		
 	}
-	public User findByUsername(String username) {
+	public User findByUserLogin(String username) {
 		TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username",User.class);
 		query.setParameter("username",username);
 		try {
