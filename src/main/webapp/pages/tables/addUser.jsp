@@ -87,7 +87,7 @@
                       List<Departement> departments = ds.getAllDepartment();
                       for(Departement d:departments){
 	                  %>
-	                      <option value="<%=r.getId() %>"><%=d.getName() %></option>
+	                      <option value="<%=d.getId() %>"><%=d.getName() %></option>
 	                  <%} %>
                      </select>
                    </div>
