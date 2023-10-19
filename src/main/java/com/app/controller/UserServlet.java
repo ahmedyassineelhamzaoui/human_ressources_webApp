@@ -97,7 +97,7 @@ public class UserServlet extends HttpServlet {
             newUser.setRole(role);
             newUser.setDepartment(department);
             userService.addUser(newUser);
-            String successMessage = "success"+ URLEncoder.encode("user created successfuly",StandardCharsets.UTF_8);
+            String successMessage = "success="+ URLEncoder.encode("user created successfuly",StandardCharsets.UTF_8);
         	response.sendRedirect("pages/tables/basic-table.jsp?"+successMessage);
         }
         

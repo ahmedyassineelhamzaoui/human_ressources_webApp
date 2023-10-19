@@ -30,6 +30,13 @@
             <div class="d-flex justify-content-end align-items-center mb-2">
                 <a class="nav-link btn btn-success create-new-button"  href="addUser.jsp">+ Create New Project</a>
             </div>
+            <% if(request.getParameter("success") !=null) { %>
+	            <div id="successMessage" class="col-lg-12 grid-margin stretch-card">
+		            <div style="width:100%" class="alert alert-success alert-dismissible fade show" role="alert">
+					  <strong class="mr-2">Success!</strong><%=request.getParameter("success") %>
+					</div>
+	            </div>
+           	<%} %>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
