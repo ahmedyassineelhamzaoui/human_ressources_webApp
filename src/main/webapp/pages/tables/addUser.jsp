@@ -74,9 +74,9 @@
                     <div class="col-6 form-group">
                       <label >UserName</label>
                       <input type="text" class="form-control"  name="userName" placeholder="UserName">
-                      <% if(request.getParameter("firstNameError")  != null){ %> 
+                      <% if(request.getParameter("userNameError")  != null){ %> 
 	                       <p class="text-danger fs-3">
-	                          <%=request.getParameter("firstNameError") %>
+	                          <%=request.getParameter("userNameError") %>
 	                       </p>
 	                  <% } %>
                     </div>

@@ -52,6 +52,8 @@ public class UserServlet extends HttpServlet {
         String position = request.getParameter("position");
         String role_id = request.getParameter("role");
         String departement_id = request.getParameter("departement");
+        String emailRegex = "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+";
+		String passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
         String err1="",err2="",err3="",err4="",err5="",err6="";
         if(userName.trim().isEmpty()) {
         	 err3 = "userNameError="+ URLEncoder.encode("username can't be empty", StandardCharsets.UTF_8);
@@ -62,11 +64,11 @@ public class UserServlet extends HttpServlet {
         if(lastName.trim().isEmpty()){
         	 err6 = "lastNameError="+ URLEncoder.encode("last name can't be empty", StandardCharsets.UTF_8);
         }
-        if(email.trim().isEmpty()){
-        	 err5 = "emailError="+ URLEncoder.encode("eamil can't be empty", StandardCharsets.UTF_8);
+        if(email.trim().isEmpty() || !email.matches(emailRegex)){
+        	 err5 = "emailError="+ URLEncoder.encode("invalid email", StandardCharsets.UTF_8);
         }
-        if(password.trim().isEmpty()){
-        	 err2 = "passwordError="+ URLEncoder.encode("password can't be empty", StandardCharsets.UTF_8);
+        if(password.trim().isEmpty() || !password.matches(passwordRegex)){
+        	 err2 = "passwordError="+ URLEncoder.encode("invalid password", StandardCharsets.UTF_8);
         }
         if(position.trim().isEmpty()){
         	 err1 = "positionError="+ URLEncoder.encode("position can't be empty", StandardCharsets.UTF_8);
