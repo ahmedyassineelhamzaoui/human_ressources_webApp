@@ -1,3 +1,9 @@
+<%@ page import="com.app.service.UserService" %>
+<%@ page import="jakarta.persistence.EntityManager" %>
+<%@ page import="com.app.util.HibernateUtil" %>
+<%@ page import="com.app.entity.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="jakarta.persistence.EntityManagerFactory" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,6 +43,12 @@
 					</div>
 	            </div>
            	<%} %>
+           	<%                                            
+            EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+	        EntityManager entityManager = entityManagerFactory.createEntityManager();
+	        UserService us = new UserService(entityManager);
+           	List<User> users = us.getAllUsers();
+           	%>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -56,16 +68,18 @@
                           </tr>
                         </thead>
                         <tbody>
+                         <% for(User u:users){ %>
                           <tr>
-                            <td>  </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
+                            <td><%=u.getFirstName() %>  </td>
+                            <td><%=u.getLastName() %>   </td>
+                            <td><%=u.getUsername() %>   </td>
+                            <td><%=u.getEmail() %>   </td>
+                            <td><%=u.getPosition() %>   </td>
+                            <td><%=u.getDepartment().getName() %>   </td>
+                            <td><%=u.getRole().getName() %>   </td>
+                            <td></td>
                           </tr>
+                        <% } %> 
                         </tbody>
                       </table>
                     </div>
