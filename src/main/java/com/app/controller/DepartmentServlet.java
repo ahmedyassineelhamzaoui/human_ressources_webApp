@@ -51,8 +51,6 @@ public class DepartmentServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EntityManagerFactory entityManagaerFactory = HibernateUtil.getEntityManagerFactory();
-		EntityManager entityManager = entityManagaerFactory.createEntityManager();
 		
 		String name = request.getParameter("name");
 		String headOfDepartment = request.getParameter("headOfDepartment");
