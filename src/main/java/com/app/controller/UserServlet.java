@@ -74,13 +74,12 @@ public class UserServlet extends HttpServlet {
         if(!err1.isEmpty() || !err2.isEmpty() || !err3.isEmpty() || !err4.isEmpty() || !err5.isEmpty() || !err6.isEmpty()) {
         	response.sendRedirect("pages/tables/addUser.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
         }else {
-        	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
             UserService userService = new UserService();
             
 
             
-            Role role = entityManager.find(Role.class, role_id); 
-            Departement department = entityManager.find(Departement.class, departement_id); 
+            Role role = userService.findRoleById(Integer.parseInt(role_id)); 
+            Departement department = userService.findDepartementById(Integer.parseInt(departement_id)); 
                 
                 
             User newUser = new User();
