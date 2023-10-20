@@ -75,9 +75,7 @@
                      <label >Role</label>
                      <select class="form-control" name="role">
                        <%
-	                      EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-	                      EntityManager entityManager = entityManagerFactory.createEntityManager();
-	                      RoleService rs = new RoleService(entityManager);
+	                      RoleService rs = new RoleService();
 	                      List<Role> roles = rs.getAllRoles();
 	                      for(Role r:roles){ %>
 	                       <option value="<%=r.getId() %>"><%=r.getName() %></option>
@@ -88,7 +86,7 @@
                      <label for="exampleSelectGender">Department</label>
                      <select class="form-control" name="departement" >
                      <% 
-                      DepartmentService ds = new DepartmentService(entityManager);
+                      DepartmentService ds = new DepartmentService();
                       List<Departement> departments = ds.getAllDepartment();
                       for(Departement d:departments){
 	                  %>
