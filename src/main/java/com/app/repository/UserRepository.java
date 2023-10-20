@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import com.app.util.HibernateUtil;
+import com.app.entity.Role;
 import com.app.entity.User;
 import java.util.List;
 public class UserRepository {
@@ -42,5 +43,8 @@ public class UserRepository {
 	    } catch (NoResultException e) {
 	        return null; 
 	    }
+	}
+	public Role findRoleById(long id) {
+		return entityManager.find(Role.class, id);
 	}
 }
