@@ -1,15 +1,17 @@
 package com.app.repository;
 
 import com.app.entity.Departement;
+import com.app.util.HibernateUtil;
+
 import java.util.List;
 import jakarta.persistence.EntityManager;
 
 public class DepartmentRepository {
 
-	private final EntityManager entityManager;
+	private  EntityManager entityManager;
 	
-	public DepartmentRepository(EntityManager entityManager) {
-		this.entityManager = entityManager;
+	public DepartmentRepository() {
+		entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 	}
 	public void saveDepartment(Departement department) {
 		try {
