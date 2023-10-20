@@ -3,16 +3,18 @@ package com.app.repository;
 import java.util.List;
 
 import com.app.entity.Role;
+import com.app.util.HibernateUtil;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 
 public class RoleRepository {
 
-	private final EntityManager entityManager;
+	private EntityManager entityManager;
 
-    public RoleRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public RoleRepository() {
+        entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
     }
 
     public void saveRole(Role role) {
