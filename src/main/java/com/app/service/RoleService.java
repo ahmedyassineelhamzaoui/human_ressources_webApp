@@ -26,5 +26,8 @@ public class RoleService {
     public void deleteRole(Role role) {
          roleRepository.removeRole(role);
     }
+    public Role findById(long id) {
+    	return roleRepository.findById(id);
+    }
     
 }
