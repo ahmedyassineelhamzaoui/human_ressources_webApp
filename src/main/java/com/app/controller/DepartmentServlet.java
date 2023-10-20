@@ -76,7 +76,7 @@ public class DepartmentServlet extends HttpServlet {
 		}else {
 			
 			dispacher = request.getRequestDispatcher("department.jsp");
-			DepartmentService departmentService = new DepartmentService(entityManager);
+			DepartmentService departmentService = new DepartmentService();
 			Departement d = new Departement();
 			d.setName(name);
 			d.setHeadOfDepartment(headOfDepartment);
