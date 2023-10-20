@@ -42,6 +42,9 @@ public class RoleServlet extends HttpServlet {
 	            } else {
 	                response.sendRedirect(request.getContextPath() + "/error.jsp");
 	            }
+	        }else {
+	        	RequestDispatcher disapcher = request.getRequestDispatcher("roles.jsp");
+	        	disapcher.forward(request,response);
 	        }
 	    }
 
