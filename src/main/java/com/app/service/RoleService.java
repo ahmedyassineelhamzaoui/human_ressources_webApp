@@ -11,10 +11,10 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class RoleService {
 
-	private final RoleRepository roleRepository;
+	private  RoleRepository roleRepository;
 	
-    public RoleService(EntityManager entityManager) {
-        this.roleRepository = new RoleRepository(entityManager);
+    public RoleService() {
+        this.roleRepository = new RoleRepository();
     }
 
     public void createRole(Role role) {
