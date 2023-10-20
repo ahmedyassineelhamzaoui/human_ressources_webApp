@@ -33,7 +33,7 @@ public class DepartmentServlet extends HttpServlet {
 		String action=request.getParameter("action");
 		if("deleteDepartment".equals(action)) {
 			long departmentIdToDelete = Long.parseLong(request.getParameter("id"));
-			departmentToDelete = departmentService.findById(departmentIdToDelete);
+			Departement departmentToDelete = departmentService.findById(departmentIdToDelete);
 			if(departmentToDelete !=null) {
 				departmentService.removeDepartment(departmentToDelete);
 		        String success = "department deleted successfully";
