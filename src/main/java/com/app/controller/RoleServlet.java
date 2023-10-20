@@ -48,9 +48,8 @@ public class RoleServlet extends HttpServlet {
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    	EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-	        EntityManager entityManager = entityManagerFactory.createEntityManager();
-	        RoleService roleService = new RoleService(entityManager);
+
+	        RoleService roleService = new RoleService();
 	    	String roleName = request.getParameter("role");
 	        if (roleName.trim().isEmpty()) {
 	            String errorMessage = "Role name cannot be empty";
