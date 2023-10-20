@@ -6,10 +6,10 @@ import jakarta.persistence.*;
 import com.app.entity.User;
 public class UserService {
 
-	private final UserRepository userRepository;
+	private  UserRepository userRepository;
 	
-	public UserService(EntityManager entityManager) {
-	    userRepository = new UserRepository(entityManager);
+	public UserService() {
+	    userRepository = new UserRepository();
 	}
 	public void addUser(User user) {
 		userRepository.addUser(user);
