@@ -12,6 +12,5 @@ com\app\controller\LoginServlet.class
 com\app\entity\User.class
 com\app\util\HibernateUtil.class
 com\app\repository\DepartmentRepository.class
-com\app\controller\RoleServlet.class
 com\app\entity\Task.class
 com\app\repository\UserRepository.class
