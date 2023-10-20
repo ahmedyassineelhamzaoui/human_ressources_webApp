@@ -1,6 +1,8 @@
 package com.app.controller;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-
+import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.app.entity.Departement;
@@ -28,7 +30,14 @@ public class UserServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		UserService userService = new UserService(entityManager);
+		List<User> users = userService.getAllUsers();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("basic-table.jsp");
+		request.setAttribute("users", users);
+		dispatcher.forward(request,response);
 	}
 
 	
