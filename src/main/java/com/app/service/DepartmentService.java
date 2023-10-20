@@ -7,10 +7,10 @@ import jakarta.persistence.EntityManager;
 
 public class DepartmentService {
 
-	private final DepartmentRepository departmentRepository;
+	private  DepartmentRepository departmentRepository;
 	
-	public DepartmentService(EntityManager entityManager) {
-		this.departmentRepository = new DepartmentRepository(entityManager);
+	public DepartmentService() {
+		this.departmentRepository = new DepartmentRepository();
 	}
 	public void addDepartment(Departement department) {
 		departmentRepository.saveDepartment(department);
