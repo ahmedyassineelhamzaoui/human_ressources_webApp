@@ -37,4 +37,7 @@ public class RoleRepository {
     	entityManager.remove(role);
     	entityManager.getTransaction().commit();
     }
+    public Role findById(long id) {
+        return entityManager.find(Role.class, id); 
+    }
 }
