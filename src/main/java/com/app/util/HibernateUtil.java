@@ -7,6 +7,7 @@ public class HibernateUtil {
 
     private static EntityManagerFactory entityManagerFactory;
 
+    private HibernateUtil();
     public static EntityManagerFactory getEntityManagerFactory() {
         if (entityManagerFactory == null) {
             try {
