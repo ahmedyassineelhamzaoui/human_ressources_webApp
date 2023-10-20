@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-
+import java.util.List;
 import com.app.entity.Role;
 import com.app.service.RoleService;
 import com.app.util.HibernateUtil;
@@ -25,13 +25,12 @@ public class RoleServlet extends HttpServlet {
 	    }
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        String action = request.getParameter("action");            
+	        String action = request.getParameter("action");   
+	        EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            RoleService roleService = new RoleService(entityManager);
             if ("deleteRole".equals(action)) {
 	            long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
-
-	            EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-	            EntityManager entityManager = entityManagerFactory.createEntityManager();
-	            RoleService roleService = new RoleService(entityManager);
 
 	            Role roleToDelete = entityManager.find(Role.class, roleIdToDelete);
 
@@ -43,6 +42,8 @@ public class RoleServlet extends HttpServlet {
 	                response.sendRedirect(request.getContextPath() + "/error.jsp");
 	            }
 	        }else {
+	        	List<Role> roles = roleService.getAllRoles();
+	        	request.setAttribute("roles", roles);
 	        	RequestDispatcher disapcher = request.getRequestDispatcher("roles.jsp");
 	        	disapcher.forward(request,response);
 	        }
