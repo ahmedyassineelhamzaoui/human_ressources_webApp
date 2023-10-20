@@ -26,16 +26,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>UserServlet</display-name>
-    <servlet-name>UserServlet</servlet-name>
-    <servlet-class>com.app.controller.UserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/UserServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>DepartmentServlet</display-name>
     <servlet-name>DepartmentServlet</servlet-name>
     <servlet-class>com.app.controller.DepartmentServlet</servlet-class>
@@ -54,5 +44,16 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoleServlet</display-name>
+    <servlet-name>RoleServlet</servlet-name>
+    <servlet-class>com.app.controller.RoleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoleServlet</servlet-name>
+    <url-pattern>/RoleServlet</url-pattern>
+    <url-pattern>/pages/tables/RoleServlet</url-pattern>
   </servlet-mapping>
 </web-app>
