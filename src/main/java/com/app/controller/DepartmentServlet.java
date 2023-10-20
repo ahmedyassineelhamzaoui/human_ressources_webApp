@@ -29,13 +29,11 @@ public class DepartmentServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EntityManagerFactory entityManagaerFactory = HibernateUtil.getEntityManagerFactory();
-		EntityManager entityManager = entityManagaerFactory.createEntityManager();
-		DepartmentService departmentService = new DepartmentService(entityManager);
+		DepartmentService departmentService = new DepartmentService();
 		String action=request.getParameter("action");
 		if("deleteDepartment".equals(action)) {
 			long departmentIdToDelete = Long.parseLong(request.getParameter("id"));
-			Departement departmentToDelete = entityManager.find(Departement.class, departmentIdToDelete);
+			departmentToDelete = departmentService.findById(departmentIdToDelete);
 			if(departmentToDelete !=null) {
 				departmentService.removeDepartment(departmentToDelete);
 		        String success = "department deleted successfully";
