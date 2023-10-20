@@ -36,4 +36,7 @@ public class DepartmentRepository {
 		entityManager.remove(department);
 		entityManager.getTransaction().commit();
 	}
+	public Departement findById(long id) {
+		return entityManager.find(Departement.class, id);
+	}
 }
