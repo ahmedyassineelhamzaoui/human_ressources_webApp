@@ -23,11 +23,8 @@
 					</div>
 	            </div>
            	<%} %>
-           	<%                                            
-            EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-	        EntityManager entityManager = entityManagerFactory.createEntityManager();
-	        UserService us = new UserService(entityManager);
-           	List<User> users = us.getAllUsers();
+           	<%       
+           	List<User> users = (List<User>) request.getAttribute("users");
            	%>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
