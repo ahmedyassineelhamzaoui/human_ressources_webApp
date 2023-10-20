@@ -38,9 +38,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userLogin = request.getParameter("userLogin");
 		String password = request.getParameter("password");
-		EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		UserService us = new UserService(entityManager);
+		UserService us = new UserService();
 		User user = us.findByUserLogin(userLogin);
 		if(user !=null) {
 			if(BCrypt.checkpw(password, user.getPassword())) {
