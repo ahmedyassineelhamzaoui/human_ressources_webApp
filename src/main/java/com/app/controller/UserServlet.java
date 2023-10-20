@@ -31,9 +31,7 @@ public class UserServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		UserService userService = new UserService(entityManager);
+		UserService userService = new UserService();
 		List<User> users = userService.getAllUsers();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("basic-table.jsp");
 		request.setAttribute("users", users);
@@ -77,7 +75,7 @@ public class UserServlet extends HttpServlet {
         	response.sendRedirect("pages/tables/addUser.jsp?"+err1+"&"+err2+"&"+err3+"&"+err4+"&"+err5+"&"+err6);
         }else {
         	EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
-            UserService userService = new UserService(entityManager);
+            UserService userService = new UserService();
             
 
             
