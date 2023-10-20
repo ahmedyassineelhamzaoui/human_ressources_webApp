@@ -26,13 +26,11 @@ public class RoleServlet extends HttpServlet {
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        String action = request.getParameter("action");   
-	        EntityManagerFactory entityManagerFactory = HibernateUtil.getEntityManagerFactory();
-            EntityManager entityManager = entityManagerFactory.createEntityManager();
-            RoleService roleService = new RoleService(entityManager);
+            RoleService roleService = new RoleService();
             if ("deleteRole".equals(action)) {
 	            long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
 
-	            Role roleToDelete = entityManager.find(Role.class, roleIdToDelete);
+	            Role roleToDelete = roleService.findById(roleIdToDelete);
 
 	            if (roleToDelete != null) {
 	                roleService.deleteRole(roleToDelete);
