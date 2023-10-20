@@ -3,14 +3,14 @@ package com.app.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-
+import com.app.util.HibernateUtil;
 import com.app.entity.User;
 import java.util.List;
 public class UserRepository {
 
-	private final EntityManager entityManager;
-	public UserRepository(EntityManager entityManager) {
-		this.entityManager = entityManager;
+	private  EntityManager entityManager;
+	public UserRepository() {
+		entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 	}
 	
 	public void addUser(User user) {
