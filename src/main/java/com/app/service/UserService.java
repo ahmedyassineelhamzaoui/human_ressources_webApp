@@ -3,6 +3,8 @@ package com.app.service;
 import com.app.repository.UserRepository;
 import java.util.List;
 import jakarta.persistence.*;
+
+import com.app.entity.Role;
 import com.app.entity.User;
 public class UserService {
 
@@ -19,5 +21,8 @@ public class UserService {
 	}
 	public User findByUserLogin(String username) {
 		return userRepository.findByUserLogin(username);
+	}
+	public Role findRoleById(long id) {
+		return userRepository.findRoleById(id);
 	}
 }
