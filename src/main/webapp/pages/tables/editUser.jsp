@@ -85,7 +85,7 @@
                       List<Departement> departments = (List<Departement>) request.getAttribute("departments");
                       for(Departement d:departments){
 	                  %>
-	                      <option value="<%=d.getId() %>"><%=d.getName() %></option>
+	                      <option <%= user.getDepartment().getId() == d.getId() ? "selected" : "" %> value="<%=d.getId() %>"><%=d.getName() %></option>
 	                  <%} %>
                      </select>
                    </div>
