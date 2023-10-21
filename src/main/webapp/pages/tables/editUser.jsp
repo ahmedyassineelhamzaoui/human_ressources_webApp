@@ -70,8 +70,11 @@
                        <%
 	         
 	                      List<Role> roles = (List<Role>) request.getAttribute("roles");
-	                      for(Role r:roles){ %>
-	                       <option value="<%=r.getId() %>"><%=r.getName() %></option>
+                          Role userRole = user.getRole();
+	                      for(Role r:roles){
+	                    	  Role curentRole = r;
+	                      %>    
+	                       <option value="<%=r.getId() %>" <%= userRole.getId() == curentRole.getId() ? "selected" : "" %>>  <%=r.getName() %></option>
 	                    <% } %>
                      </select>
                    </div>
