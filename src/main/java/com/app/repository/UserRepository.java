@@ -51,4 +51,7 @@ public class UserRepository {
 	public Departement findDepartmentById(long id) {
 		return entityManager.find(Departement.class, id);
 	}
+	public User findUserById(long id) {
+		return entityManager.find(User.class, id);
+	}
 }
