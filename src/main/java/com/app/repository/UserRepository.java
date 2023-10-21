@@ -54,4 +54,19 @@ public class UserRepository {
 	public User findUserById(long id) {
 		return entityManager.find(User.class, id);
 	}
+	public void updateUser(User user) {
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.merge(user);
+			entityManager.getTransaction().commit();
+		}catch(Exception e) {
+			if(entityManager.getTransaction().isActive()) 
+			{
+				entityManager.getTransaction().rollback();
+			}
+			e.getMessage();
+		}finally {
+			entityManager.close();
+		}
+	}
 }
