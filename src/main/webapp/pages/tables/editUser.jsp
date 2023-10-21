@@ -19,7 +19,7 @@
             <div class="col-12 grid-margin stretch-card">
              <div class="card">
                <div class="card-body">
-                 <h4 class="card-title">Add User Form</h4>
+                 <h4 class="card-title">Edit User Form</h4>
                  <form class="forms-sample" action="../../UserServlet" method="post">
                  <div class="row">
                     <div class="col-6 form-group">
