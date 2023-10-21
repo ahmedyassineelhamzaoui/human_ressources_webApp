@@ -32,7 +32,7 @@ public class UserService {
 	public User findUserById(long id) {
 		return userRepository.findUserById(id);
 	}
-	public void updateUser(User user) {
-		userRepository.updateUser(user);
+	public void updateUser(User user,long id) {
+		userRepository.updateUser(user,id);
 	}
 }
