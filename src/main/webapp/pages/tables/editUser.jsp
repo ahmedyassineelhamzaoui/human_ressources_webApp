@@ -22,7 +22,7 @@
              <div class="card">
                <div class="card-body">
                  <h4 class="card-title">Edit User Form</h4>
-                 <form class="forms-sample" action="../../UserServlet" method="post">
+                 <form class="forms-sample" action="EditUserServlet" method="post">
                  <div class="row">
                     <div class="col-6 form-group">
                       <label >FirstName</label>
