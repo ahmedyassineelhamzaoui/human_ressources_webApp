@@ -67,4 +67,15 @@
     <url-pattern>/UserServlet</url-pattern>
     <url-pattern>/pages/tables/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>com.app.controller.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/EditUserServlet</url-pattern>
+    <url-pattern>/pages/tables/EditUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
