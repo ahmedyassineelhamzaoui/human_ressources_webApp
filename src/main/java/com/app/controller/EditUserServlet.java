@@ -113,7 +113,7 @@ public class EditUserServlet extends HttpServlet {
             newUser.setPosition(position);
             newUser.setRole(role);
             newUser.setDepartment(department);
-            userService.updateUser(newUser,usertoEdit.getId());
+            userService.updateUser(newUser);
             String successMessage = "success="+ URLEncoder.encode("user updated successfuly",StandardCharsets.UTF_8);
         	response.sendRedirect("UserServlet?"+successMessage);
         }

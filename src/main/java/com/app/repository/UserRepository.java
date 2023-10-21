@@ -54,10 +54,16 @@ public class UserRepository {
 	public User findUserById(long id) {
 		return entityManager.find(User.class, id);
 	}
-	public void updateUser(User user) {
+	public void updateUser(User user,long id) {
+		User userToEdit = entityManager.find(User.class, id);
 		try {
 			entityManager.getTransaction().begin();
-			entityManager.merge(user);
+			userToEdit.setFirstName(user.getFirstName());
+			userToEdit.setLastName(user.getLastName());
+			userToEdit.setEmail(user.getEmail());
+			userToEdit.setPosition(user.getPosition());
+			userToEdit.setRole(user.getRole());
+			userToEdit.setDepartment(user.getDepartment());
 			entityManager.getTransaction().commit();
 		}catch(Exception e) {
 			if(entityManager.getTransaction().isActive()) 
