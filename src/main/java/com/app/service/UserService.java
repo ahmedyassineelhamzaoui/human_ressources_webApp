@@ -29,4 +29,7 @@ public class UserService {
 	public Departement findDepartementById(long id) {
 		return userRepository.findDepartmentById(id);
 	}
+	public User findUserById(long id) {
+		return userRepository.findUserById(id);
+	}
 }
