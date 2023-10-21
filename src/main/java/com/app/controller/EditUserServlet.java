@@ -97,7 +97,7 @@ public class EditUserServlet extends HttpServlet {
         }else {
             UserService userService = new UserService();
             
-
+            User usertoEdit = userService.findByUserLogin(userName);
             
             Role role = userService.findRoleById(Integer.parseInt(role_id)); 
             Departement department = userService.findDepartementById(Integer.parseInt(departement_id)); 
@@ -113,7 +113,7 @@ public class EditUserServlet extends HttpServlet {
             newUser.setPosition(position);
             newUser.setRole(role);
             newUser.setDepartment(department);
-            userService.updateUser(newUser);
+            userService.updateUser(newUser,usertoEdit.getId());
             String successMessage = "success="+ URLEncoder.encode("user updated successfuly",StandardCharsets.UTF_8);
         	response.sendRedirect("UserServlet?"+successMessage);
         }
