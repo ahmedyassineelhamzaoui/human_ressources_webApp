@@ -21,5 +21,8 @@ public class EquipmentService {
 	public Equipement findById(long id) {
 		return equipementRepostiry.findById(id);
 	}
+	public void deleteEquipment(Equipement equipement) {
+		equipementRepostiry.deleteEquipment(equipement);
+	}
 }
 
