@@ -30,4 +30,7 @@ public class TaskRepository {
 		entityManager.remove(task);
 		entityManager.getTransaction().commit();
 	}
+	public Task findById(long id) {
+		return entityManager.find(Task.class,id);
+	}
 }
