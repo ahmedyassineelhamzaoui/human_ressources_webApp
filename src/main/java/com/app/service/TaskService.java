@@ -18,4 +18,7 @@ public class TaskService {
 	public List<Task> getAllTasks(){
 		return taskRepository.getAllTasks();
 	}
+	public void deleteTask(Task task) {
+		taskRepository.deleteTask(task);
+	}
 }
