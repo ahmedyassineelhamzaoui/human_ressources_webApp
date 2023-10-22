@@ -1,5 +1,7 @@
 package com.app.repository;
 
+import java.util.List;
+
 import com.app.entity.Equipement;
 import com.app.util.HibernateUtil;
 
@@ -23,5 +25,8 @@ public class EquipmentRepository {
 		}finally {
 			entityManager.close();
 		}
+	}
+	public List<Equipement> getAllEquipment(){
+		return entityManager.createQuery("SELECT e Equipement e",Equipement.class).getResultList();
 	}
 }
