@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.util.List;
+
 import com.app.entity.Equipement;
 import com.app.repository.EquipmentRepository;
 
@@ -13,5 +15,7 @@ public class EquipmentService {
 	public void SaveEquipment(Equipement equipement) {
 		equipementRepostiry.AddEquipment(equipement);
 	}
-	
+	public List<Equipement> getAllEquipment(){
+		return equipementRepostiry.getAllEquipment();
+	}
 }
