@@ -18,4 +18,8 @@ public class EquipmentService {
 	public List<Equipement> getAllEquipment(){
 		return equipementRepostiry.getAllEquipment();
 	}
+	public Equipement findById(long id) {
+		return equipementRepostiry.findById(id);
+	}
 }
+
