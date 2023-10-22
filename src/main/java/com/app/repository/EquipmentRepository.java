@@ -34,4 +34,7 @@ public class EquipmentRepository {
 		entityManager.remove(equipement);
 		entityManager.getTransaction().commit();
 	}
+	public Equipement findById(long id) {
+		return entityManager.find(Equipement.class, id);
+	}
 }
