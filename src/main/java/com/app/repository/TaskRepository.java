@@ -25,4 +25,9 @@ public class TaskRepository {
 			entityManager.close();
 		}
 	}
+	public void deleteTask(Task task) {
+		entityManager.getTransaction().begin();
+		entityManager.remove(task);
+		entityManager.getTransaction().commit();
+	}
 }
