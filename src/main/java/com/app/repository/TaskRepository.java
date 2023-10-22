@@ -1,5 +1,7 @@
 package com.app.repository;
 
+import java.util.List;
+
 import com.app.entity.Task;
 import com.app.util.HibernateUtil;
 
@@ -32,5 +34,8 @@ public class TaskRepository {
 	}
 	public Task findById(long id) {
 		return entityManager.find(Task.class,id);
+	}
+	public List<Task> getAllTasks(){
+		return entityManager.createQuery("SELECT t TASK t",Task.class).getResultList();
 	}
 }
