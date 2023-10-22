@@ -6,26 +6,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>WelcomeServlet</display-name>
-    <servlet-name>WelcomeServlet</servlet-name>
-    <servlet-class>com.app.controller.WelcomeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>WelcomeServlet</servlet-name>
-    <url-pattern>/WelcomeServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>EmployeServlet</display-name>
-    <servlet-name>EmployeServlet</servlet-name>
-    <servlet-class>com.app.controller.EmployeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EmployeServlet</servlet-name>
-    <url-pattern>/EmployeServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>DepartmentServlet</display-name>
     <servlet-name>DepartmentServlet</servlet-name>
     <servlet-class>com.app.controller.DepartmentServlet</servlet-class>
@@ -33,7 +13,7 @@
   <servlet-mapping>
     <servlet-name>DepartmentServlet</servlet-name>
     <url-pattern>/DepartmentServlet</url-pattern>
-    <url-pattern>/pages/tables/DepartmentServlet</url-pattern>
+    <url-pattern>/build/pages/DepartmentServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -54,7 +34,7 @@
   <servlet-mapping>
     <servlet-name>RoleServlet</servlet-name>
     <url-pattern>/RoleServlet</url-pattern>
-    <url-pattern>/pages/tables/RoleServlet</url-pattern>
+    <url-pattern>/build/pages/RoleServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -65,7 +45,7 @@
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
-    <url-pattern>/pages/tables/UserServlet</url-pattern>
+    <url-pattern>/build/pages/UserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

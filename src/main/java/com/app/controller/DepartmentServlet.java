@@ -43,7 +43,7 @@ public class DepartmentServlet extends HttpServlet {
 		}else {
 			List<Departement> departements = departmentService.getAllDepartment();
 			request.setAttribute("departements", departements);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("departments.jsp");
 		    dispatcher.forward(request, response);
 		}
 		

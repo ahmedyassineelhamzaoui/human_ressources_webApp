@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet {
 	
 		UserService userService = new UserService();
 		List<User> users = userService.getAllUsers();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("basic-table.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
 		request.setAttribute("users", users);
 		dispatcher.forward(request,response);
 	}

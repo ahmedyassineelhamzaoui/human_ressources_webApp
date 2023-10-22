@@ -4,6 +4,8 @@ C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\service\
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\entity\Equipement.java
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\controller\Main.java
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\util\HibernateUtil.java
+C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\controller\UserServlet.java
+C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\controller\EditUserServlet.java
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\entity\Task.java
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\repository\RoleRepository.java
 C:\Users\ahmed\eclipse-workspace\human_ressources\src\main\java\com\app\entity\Departement.java
