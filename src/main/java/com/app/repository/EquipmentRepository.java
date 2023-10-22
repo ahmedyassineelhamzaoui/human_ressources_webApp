@@ -29,4 +29,9 @@ public class EquipmentRepository {
 	public List<Equipement> getAllEquipment(){
 		return entityManager.createQuery("SELECT e Equipement e",Equipement.class).getResultList();
 	}
+	public void deleteEquipment(Equipement equipement) {
+		entityManager.getTransaction().begin();
+		entityManager.remove(equipement);
+		entityManager.getTransaction().commit();
+	}
 }
