@@ -37,4 +37,7 @@ public class EquipmentRepository {
 	public Equipement findById(long id) {
 		return entityManager.find(Equipement.class, id);
 	}
+	public Equipement updateEquipement(Equipement equipement) {
+		return entityManager.merge(equipement);
+	}
 }
