@@ -24,5 +24,8 @@ public class EquipmentService {
 	public void deleteEquipment(Equipement equipement) {
 		equipementRepostiry.deleteEquipment(equipement);
 	}
+	public Equipement updateEquipment(Equipement equipement) {
+		return equipementRepostiry.updateEquipement(equipement);
+	}
 }
 
