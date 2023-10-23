@@ -10,10 +10,11 @@ public class Equipement {
     private String name;
     private String type;
     private Date purchaseDate;
+    @Column(nullable=true)
     private Date maintenanceDate;
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "assigned_user_id")
-    private User assignedUser;
+    @JoinColumn(name = "user_id")
+    private User user;
 }
