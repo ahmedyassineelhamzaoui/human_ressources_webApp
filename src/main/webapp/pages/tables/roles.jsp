@@ -76,10 +76,10 @@
                 <%--     -- Main Content ----%>
                 <div>
                     <%--         -- Topbar ----%>
-                    <nav class="navbar navbar-expand  mb-4 shadow">
-                        <div>
-                            <p class="fs-5 ms-4">Welcome <span> ${ sessionScope.userName } !</span></p>
-                        </div>
+                    <nav class="navbar navbar-expand  mb-4 shadow ">
+                        <div >
+                            <p class="fs-5 ms-4">Welcome <span> ${ sessionScope.userName } !</span></p>                
+                        </div>                        
                     </nav>
                     <%--          End of Topbar ---%>
                     <%--          Begin Page Content ----%>
@@ -87,6 +87,7 @@
                         <%--             Page Heading --%>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h3 class="mb-0 text-secondary">Roles</h3>
+                            <button class="btn btn-primary" data-bs-target="#addRoleModal" data-bs-toggle="modal">+ Add Role</button>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
@@ -133,6 +134,25 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="addRoleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add Role</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		    <label  class="form-label">Role name</label>
+		    <input type="text" name="roleName" placeholder="role name" class="form-control"  >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save </button>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
