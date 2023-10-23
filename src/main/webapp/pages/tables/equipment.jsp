@@ -8,7 +8,7 @@
 </head>
 <body>
 
-   <form actione="EquipmentServlet" method="post">
+   <form action="EquipmentServlet" method="post">
     <div>
       <label>Name </label>
       <input type="text" name="name" >
