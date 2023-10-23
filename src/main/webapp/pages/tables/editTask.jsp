@@ -12,7 +12,7 @@
  <form action="EditTaskServlet" method="post">
        <div>
          <label>deadline</label>
-         <input name="deadline" type="date" value="<%= task.getDeadline()%>">
+         <input name="deadline" type="datetime-local" value="<%=task.getDeadline() %>" >
        </div>
        <div>
          <label>description</label>
