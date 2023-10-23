@@ -7,8 +7,8 @@
 <%--</h2>--%>
 <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
 <%--<% } %>--%>
-<% if (session.getAttribute("userName") ==null){
-    response.sendRedirect("login.jsp");
+<% if (session.getAttribute("userLogin") ==null){
+  response.sendRedirect("../../login.jsp");
 }%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
