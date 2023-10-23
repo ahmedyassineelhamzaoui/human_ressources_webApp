@@ -74,9 +74,20 @@
     <servlet-name>TaskServlet</servlet-name>
     <servlet-class>com.app.controller.TaskServlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>TaskServlet</servlet-name>
     <url-pattern>/TaskServlet</url-pattern>
     <url-pattern>/pages/tables/TaskServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditTaskServlet</display-name>
+    <servlet-name>EditTaskServlet</servlet-name>
+    <servlet-class>com.app.controller.EditTaskServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditTaskServlet</servlet-name>
+    <url-pattern>/EditTaskServlet</url-pattern>
+    <url-pattern>/pages/tables/EditTaskServlet</url-pattern>
   </servlet-mapping>
 </web-app>
