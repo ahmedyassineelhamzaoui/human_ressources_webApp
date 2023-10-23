@@ -8,6 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.app.entity.Task;
+import com.app.entity.User;
+import com.app.service.TaskService;
+import com.app.service.UserService;
 
 /**
  * Servlet implementation class TaskServlet
@@ -39,9 +46,24 @@ public class TaskServlet extends HttpServlet {
 		String description=request.getParameter("description");
 		String priority=request.getParameter("priority");
 		String status=request.getParameter("status");
-		String user=request.getParameter("user");
-		PrintWriter pw = response.getWriter();
-		pw.print("");
+		String user_id=request.getParameter("user");
+      
+		UserService userService = new UserService();
+		User user = userService.findUserById(Integer.parseInt(user_id));
+		Task t = new Task();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date deadlineDate = dateFormat.parse(deadline);
+			t.setDeadline(deadlineDate);
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		t.setDescription(description);
+		t.setPriority(priority);
+		t.setStatus(status);
+		t.setAssignedUser(user);
+		TaskService taskService = new TaskService();
+		taskService.addTask(t);
 	}
 
 }
