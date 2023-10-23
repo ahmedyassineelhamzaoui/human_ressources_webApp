@@ -9,7 +9,7 @@
 </head>
 <body>
 <% Task task = (Task) request.getAttribute("task"); %>
- <form action="EditTaskServlet" method="post">
+ <form action="EditTaskServlet?id=<%=task.getId() %>" method="post">
        <div>
          <label>deadline</label>
          <input name="deadline" type="datetime-local" value="<%=task.getDeadline() %>" >

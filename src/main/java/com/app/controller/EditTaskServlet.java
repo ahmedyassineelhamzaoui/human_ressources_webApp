@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.app.entity.Task;
 import com.app.service.TaskService;
@@ -41,8 +42,14 @@ public class EditTaskServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String id = request.getParameter("id");
+		String deadline=request.getParameter("deadline");
+		String description=request.getParameter("description");
+		String priority=request.getParameter("priority");
+		String status=request.getParameter("status");
+		String user_id=request.getParameter("user");
+		PrintWriter pw = response.getWriter();
+		pw.print("id: "+id+" deadline: "+deadline+" description: "+description+" priority:"+priority+" status: "+status+" user_id: "+user_id);
 	}
 
 }
