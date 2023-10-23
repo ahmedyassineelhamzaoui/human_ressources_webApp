@@ -8,10 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import com.app.entity.Task;
 import com.app.service.TaskService;
-
+import com.app.service.UserService;
+import com.app.entity.User;
 /**
  * Servlet implementation class EditTaskServlet
  */
@@ -48,8 +50,26 @@ public class EditTaskServlet extends HttpServlet {
 		String priority=request.getParameter("priority");
 		String status=request.getParameter("status");
 		String user_id=request.getParameter("user");
+		TaskService taskService = new TaskService();
+		Task task = taskService.findById(Integer.parseInt(id));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date deadlineDate = dateFormat.parse(deadline);
+			task.setDeadline(deadlineDate);
+
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		UserService userService = new UserService();
+		User user = userService.findUserById(Integer.parseInt(user_id));
+		task.setAssignedUser(user);
+		task.setDescription(description);
+		task.setPriority(priority);
+		task.setStatus(status);
+		taskService.updateTask(task);
 		PrintWriter pw = response.getWriter();
-		pw.print("id: "+id+" deadline: "+deadline+" description: "+description+" priority:"+priority+" status: "+status+" user_id: "+user_id);
+		
+		pw.print("id: "+task.getId()+" deadline: "+task.getDeadline()+" description: "+task.getDescription()+" priority:"+task.getPriority()+" status: "+task.getStatus()+" user_id: "+task.getAssignedUser());
 	}
 
 }

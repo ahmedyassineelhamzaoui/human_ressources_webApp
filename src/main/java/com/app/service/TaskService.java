@@ -24,7 +24,7 @@ public class TaskService {
 	public Task findById(long id) {
 		return taskRepository.findById(id);
 	}
-	public Task updateTask(Task task) {
-		return taskRepository.updateTask(task);
+	public void updateTask(Task task) {
+		 taskRepository.updateTask(task);
 	}
 }

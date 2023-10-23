@@ -38,7 +38,9 @@ public class TaskRepository {
 	public List<Task> getAllTasks(){
 		return entityManager.createQuery("SELECT t TASK t",Task.class).getResultList();
 	}
-	public Task updateTask(Task task) {
-		return entityManager.merge(task);
+	public void updateTask(Task task) {
+		entityManager.getTransaction().begin();
+		 entityManager.merge(task);
+		 entityManager.getTransaction().commit();
 	}
 }
