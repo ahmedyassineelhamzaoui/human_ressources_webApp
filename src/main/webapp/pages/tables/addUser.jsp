@@ -1,5 +1,7 @@
 <%@ page import="com.app.entity.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.app.service.*" %>
+<%@ page import="com.app.entity.*" %>
 <%-- <% if (session.getAttribute("userName") ==null){
     response.sendRedirect("login.jsp");
 }%> --%>
@@ -74,7 +76,11 @@
             <div class="d-flex flex-column">
                 <%--     -- Main Content ----%>
                 <div>
-       
+                 <%  RoleService rs = new RoleService();
+                     List<Role> roles = rs.getAllRoles();
+                     DepartmentService ds = new DepartmentService();
+                     List<Departement> departments = ds.getAllDepartment();
+                 %>
                     <div class="container-fluid">
                         <%--             Page Heading --%>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -93,11 +99,11 @@
                                         <div class="row">
                                          <div class="col-6 mb-3">
 										    <label  class="form-label">First name</label>
-										    <input type="text" name="" class="form-control"  >
+										    <input type="text" name="firstName" class="form-control"  >
 										  </div>
 										  <div class=" col-6 mb-3">
 										    <label class="form-label">Last Name</label>
-										    <input type="text" name="" class="form-control" >
+										    <input type="text" name="lastName" class="form-control" >
 										  </div>
                                          </div>
                                          <div class="row">
@@ -113,11 +119,11 @@
                                          <div class="row">
                                          <div class="col-6 mb-3">
 										    <label  class="form-label">Username</label>
-										    <input type="text" class="form-control" >
+										    <input type="text" name="userName" class="form-control" >
 										  </div>
 										  <div class=" col-6 mb-3">
 										    <label  class="form-label">Position</label>
-										    <input type="text" class="form-control" >
+										    <input type="text" name="position" class="form-control" >
 										  </div>
                                          </div> 
 										 <div class="row">
@@ -127,18 +133,18 @@
 										  </div>
 										  <div class=" col-4 mb-3">
 										    <label  class="form-label">Department</label>
-										    <select class="form-select" >
-											  <option value="1">One</option>
-											  <option value="2">Two</option>
-											  <option value="3">Three</option>
+										    <select name="departement_id" class="form-select" >
+											  <% for(Departement d:departments){ %>
+											   <option value="<%=d.getId()%>"><%=d.getName() %></option>
+											  <% } %>
 											</select>
 										  </div>
 										  <div class=" col-4 mb-3">
 										    <label  class="form-label">Role</label>
-										    <select class="form-select" >
-											  <option value="1">One</option>
-											  <option value="2">Two</option>
-											  <option value="3">Three</option>
+										    <select name="role_id" class="form-select" >
+											 <% for(Role r:roles){ %>
+											   <option value="<%=r.getId()%>"><%=r.getName() %></option>
+											  <% } %>
 											</select>
 										  </div>
                                          </div> 
