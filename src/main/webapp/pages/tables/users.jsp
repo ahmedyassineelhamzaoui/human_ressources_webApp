@@ -7,9 +7,9 @@
 <%--</h2>--%>
 <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
 <%--<% } %>--%>
-<% if (session.getAttribute("userLogin") ==null){
+<%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
-}%>
+}%> --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,6 +31,7 @@
                         <span class="text-white" style="font-size: 12px">test</span>
                     </div>
                 </div>
+                <jsp:include page="../includes/asidebar.jsp"/>
             </div>
         </div>
 
@@ -51,14 +52,14 @@
                     <div class="container-fluid">
                         <%--             Page Heading --%>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h3 class="mb-0 text-secondary">Employees</h3>
+                            <h3 class="mb-0 text-secondary">users</h3>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
                                 <div class="card shadow mb-4 col-8">
                                     <%--                  Card Header - Dropdown ----%>
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Employees</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">users</h6>
                                     </div>
                                     <%--                  -- Card Body ----%>
                                     <div class="card-body">

@@ -25,6 +25,7 @@
                         <span class="fw-bold text-white">test</span>
                         <span class="text-white" style="font-size: 12px">test</span>
                     </div>
+                    <jsp:include page="../includes/asidebar.jsp"/>
                 </div>
             </div>
         </div>
