@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Servlet implementation class TaskServlet
@@ -34,8 +35,13 @@ public class TaskServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String deadline=request.getParameter("deadline");
+		String description=request.getParameter("description");
+		String priority=request.getParameter("priority");
+		String status=request.getParameter("status");
+		String user=request.getParameter("user");
+		PrintWriter pw = response.getWriter();
+		pw.print("");
 	}
 
 }
