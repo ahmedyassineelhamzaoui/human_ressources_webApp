@@ -2,9 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.app.service.*" %>
 <%@ page import="com.app.entity.*" %>
-<%-- <% if (session.getAttribute("userName") ==null){
-    response.sendRedirect("login.jsp");
-}%> --%>
+<% if (session.getAttribute("userLogin") ==null){
+  response.sendRedirect("../../login.jsp");
+}%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
