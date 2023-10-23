@@ -120,3 +120,4 @@
         </div>
     </div>
 </div>
+<jsp:include page="../includes/script.jsp"/>
