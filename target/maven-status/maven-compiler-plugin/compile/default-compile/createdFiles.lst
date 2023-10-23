@@ -19,6 +19,7 @@ com\app\repository\TaskRepository.class
 com\app\entity\Role.class
 com\app\controller\Main.class
 com\app\controller\EquipmentServlet.class
+com\app\controller\EditTaskServlet.class
 com\app\entity\User.class
 com\app\util\HibernateUtil.class
 com\app\controller\RoleServlet.class
