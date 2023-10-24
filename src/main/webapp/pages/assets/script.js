@@ -15,7 +15,26 @@ function showDeleteConfirmation(userId) {
     }
 
     function deleteUserData(userId) {
-        // You can perform the delete action here
-        // For example, you can make an AJAX request to delete the user with the specified userId.
-        // After successful deletion, you can update the table or perform any other necessary actions.
-    }
+    const url = `/UserServlet?userId=${userId}`;
+
+    fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            // Successful deletion
+            Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+            
+            // You may also update the user interface, e.g., remove the user from the table
+        } else {
+            Swal.fire('Error', 'An error occurred while deleting the user.', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        Swal.fire('Error', 'An error occurred while deleting the user.', 'error');
+    });
+}
