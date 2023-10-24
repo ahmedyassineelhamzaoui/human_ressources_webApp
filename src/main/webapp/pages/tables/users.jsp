@@ -74,33 +74,33 @@
 												<table class="table table-striped border">
 													<thead class="bg-secondary bg-opacity-25">
 														<tr>
-															<th scope="col">User Name</th>
-															<th scope="col">Email</th>
+															<th scope="col">UserName</th>
 															<th scope="col">First Name</th>
 															<th scope="col">Last Name</th>
 															<th scope="col">Position</th>
+															<th scope="col">Role</th>
+															<th scope="col">Department</th>
+															<th scope="col">Hire Date</th>
 															<th scope="col">Action</th>
 														</tr>
 													</thead>
 													<tbody>
-														<% if (request.getAttribute("result") != null) {
-                                                    List<User> employeeList = (List<User>) request.getAttribute("result");
-                                                    for (User emp:employeeList) {%>
-														<tr>
-															<td><p><%= emp.getFirstName() %></p></td>
-															<td><p><%= emp.getEmail() %></p></td>
-															<td><p><%= emp.getFirstName() %></p></td>
-															<td><p><%= emp.getLastName() %></p></td>
-															<td><p><%= emp.getPosition() %></p></td>
-															<td>
-																<form action="EmployeesServlet" method="post">
-																	<input type="text" value="<%=emp.getId()%>"
-																		name="userId" hidden>
-																	<button type="submit" class="btn btn-danger">Delete</button>
-																</form>
-															</td>
+													<% 
+													if(request.getAttribute("users") !=null){
+													List<User> users= (List<User>) request.getAttribute("users");
+													   for(User u:users){
+													%>
+													   <tr>
+															<td scope="col"><%=u.getUsername() %></td>
+															<td scope="col"><%= u.getFirstName() %> </td>
+															<td scope="col"><%= u.getLastName() %></td>
+															<td scope="col"><%= u.getPosition() %></td>
+															<td scope="col"><%= u.getRole().getName() %></td>
+															<td scope="col"><%= u.getDepartment().getName() %></td>
+															<td scope="col"><%= u.getHireDate() %></td>
+															<td scope="col">Action</td>
 														</tr>
-														<%} } %>
+												    <%}} %>
 													</tbody>
 												</table>
 											</div>

@@ -1,8 +1,8 @@
 <%@ page import="com.app.entity.Departement" %>
 <%@ page import="java.util.List" %>
-<% if (session.getAttribute("userLogin") ==null){
+<%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
-}%>
+}%> --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,10 +17,10 @@
                 <a href="#" class="pb-3 mb-md-0 text-decoration-none text-dark fs-5 d-none d-sm-inline">Resourcium<span class="text-white">Optima</span></a>
                 <div class="d-flex flex-column mx-auto my-3 d-none d-sm-inline">
                     <div class="rounded-circle  overflow-hidden" style="width: 80px; height:80px;">
-                        <img class="w-100" id="image"  src="images/home.png" alt="Profile image">
+                        <img class="w-100" id="image"  src="../images/home.png" alt="Profile image">
                     </div>
-                    <jsp:include page="../includes/asidebar.jsp"/>
                 </div>
+                <jsp:include page="../includes/asidebar.jsp"/>
             </div>
         </div>
 
@@ -40,13 +40,11 @@
                     <%--          Begin Page Content ----%>
                     <div class="container-fluid">
                         <%--             Page Heading --%>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h3 class="mb-0 text-secondary">Department</h3>
-                            </div>
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h3 class="mb-0 text-secondary">Department</h3>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTask">
-                                Add Task
-                            </button>
+                           + Add Task
+                         </button>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
