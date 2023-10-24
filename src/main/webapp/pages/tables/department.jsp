@@ -60,8 +60,9 @@
                                                 <thead class="bg-secondary bg-opacity-25">
                                                 <tr>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">description</th>
-                                                    <th scope="col">action</th>
+                                                    <th scope="col">Head of Department</th>
+                                                    <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -69,6 +70,7 @@
                                                     List<Departement> departmentList = (List<Departement>) request.getAttribute("result");
                                                     for (Departement dep:departmentList) {%>
                                                 <tr>
+                                                    <td><p><%= dep.getName() %></p></td>
                                                     <td><p><%= dep.getName() %></p></td>
                                                     <td><p><%= dep.getDescription() %></p></td>
                                                     <td>
