@@ -51,7 +51,6 @@ public class DepartmentServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String name = request.getParameter("name");
 		String headOfDepartment = request.getParameter("headOfDepartment");
 		String description = request.getParameter("description");
@@ -72,9 +71,10 @@ public class DepartmentServlet extends HttpServlet {
 		if(headOfDepartment.trim().isEmpty()) {
 			response.sendRedirect("addDepartment.jsp?errorheadOfDepartment="+ URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8));
 		}else {
-			
-			dispacher = request.getRequestDispatcher("department.jsp");
 			DepartmentService departmentService = new DepartmentService();
+			List<Departement> departements = departmentService.getAllDepartment();
+			request.setAttribute("departements", departements);
+			dispacher = request.getRequestDispatcher("department.jsp");
 			Departement d = new Departement();
 			d.setName(name);
 			d.setHeadOfDepartment(headOfDepartment);

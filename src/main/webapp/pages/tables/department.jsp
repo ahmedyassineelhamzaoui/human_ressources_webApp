@@ -85,7 +85,7 @@
                                                     for (Departement d:departmentList) {%>
 														<tr>
 															<td><p><%= d.getName() %></p></td>
-															<td><p><%= d.getName() %></p></td>
+															<td><p><%= d.getHeadOfDepartment() %></p></td>
 															<td><p><%= d.getDescription() %></p></td>
 															<td>
 																<form action="EmployeesServlet" method="post">
