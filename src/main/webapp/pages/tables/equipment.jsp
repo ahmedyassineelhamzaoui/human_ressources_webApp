@@ -40,12 +40,10 @@
                     <%--          Begin Page Content ----%>
                     <div class="container-fluid">
                         <%--             Page Heading --%>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h3 class="mb-0 text-secondary">Equipment</h3>
-                            </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTask">
-                                Add Equipment
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h3 class="mb-0 text-secondary">Equipment</h3>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEquipment">
+                             + Add Equipment
                             </button>
                         </div>
                         <div class="row">
@@ -100,7 +98,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="addTask" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal fade" id="addEquipment" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <form action="EquipmentServlet" method="post" class="modal-content">
       <div class="modal-header">
