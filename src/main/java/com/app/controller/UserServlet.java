@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -18,7 +19,7 @@ import com.app.entity.Role;
 import com.app.entity.User;
 import com.app.service.UserService;
 import com.app.util.HibernateUtil;
-
+import java.util.Date;
 
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,6 +48,7 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String position = request.getParameter("position");
+        String hireDate = request.getParameter("hireDate");
         String role_id = request.getParameter("role");
         String departement_id = request.getParameter("departement");
         String emailRegex = "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+";
@@ -81,7 +83,8 @@ public class UserServlet extends HttpServlet {
             Role role = userService.findRoleById(Integer.parseInt(role_id)); 
             Departement department = userService.findDepartementById(Integer.parseInt(departement_id)); 
                 
-                
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            
             User newUser = new User();
             newUser.setUsername(userName);
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -92,7 +95,15 @@ public class UserServlet extends HttpServlet {
             newUser.setPosition(position);
             newUser.setRole(role);
             newUser.setDepartment(department);
+            try {
+            	Date hireDateToInsert = dateFormat.parse(hireDate);
+                newUser.setHireDate(hireDateToInsert);
+
+            }catch(Exception e) {
+            	e.getMessage();
+            }
             userService.addUser(newUser);
+
             String successMessage = "success="+ URLEncoder.encode("user created successfuly",StandardCharsets.UTF_8);
         	response.sendRedirect("UserServlet?"+successMessage);
         }
