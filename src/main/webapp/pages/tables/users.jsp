@@ -163,18 +163,18 @@
 					<div class="row">
 						<div class="col-4 mb-3">
 							<label class="form-label">Hire Date</label> <input type="date"
-								class="form-control">
+							  name="hireDate"	class="form-control">
 						</div>
 						<div class=" col-4 mb-3">
 							<label class="form-label">Department</label> <select
-								name="departement_id" class="form-select">
+								name="departement" class="form-select">
 								<% for(Departement d:departments){ %>
 								<option value="<%=d.getId()%>"><%=d.getName() %></option>
 								<% } %>
 							</select>
 						</div>
 						<div class=" col-4 mb-3">
-							<label class="form-label">Role</label> <select name="role_id"
+							<label class="form-label">Role</label> <select name="role"
 								class="form-select">
 								<% for(Role r:roles){ %>
 								<option value="<%=r.getId()%>"><%=r.getName() %></option>
