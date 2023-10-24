@@ -1,6 +1,7 @@
 package com.app.entity;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Equipement {
@@ -17,7 +18,11 @@ public class Equipement {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User assignedUser;
-
+    
+    @OneToMany(mappedBy = "equipement")
+    private List<Order> orders;
+    
+    
 	public Long getId() {
 		return id;
 	}

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   <display-name>human_ressources</display-name>
-  
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
@@ -79,19 +78,39 @@
     <servlet-name>TaskServlet</servlet-name>
     <servlet-class>com.app.controller.TaskServlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>TaskServlet</servlet-name>
     <url-pattern>/TaskServlet</url-pattern>
     <url-pattern>/pages/tables/TaskServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <display-name>EditTaskServlet</display-name>
     <servlet-name>EditTaskServlet</servlet-name>
     <servlet-class>com.app.controller.EditTaskServlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>EditTaskServlet</servlet-name>
     <url-pattern>/EditTaskServlet</url-pattern>
     <url-pattern>/pages/tables/EditTaskServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WelcomeServlet</display-name>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <servlet-class>com.app.controller.WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderServlet</display-name>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.app.controller.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>

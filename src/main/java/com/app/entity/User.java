@@ -39,6 +39,9 @@ public class User {
 	    @OneToMany(mappedBy = "assignedUser")
 	    private List<Task> assignedTasks;
 
+	    @OneToMany(mappedBy = "user")
+	    private List<Order> orders;
+	    
 		public Long getId() {
 			return id;
 		}
