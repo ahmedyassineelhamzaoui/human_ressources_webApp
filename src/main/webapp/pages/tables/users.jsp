@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>Employees</title>
+<title>Users</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -122,7 +122,7 @@
 	<div class="modal fade" id="addUser" aria-hidden="true"
 		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
-			<form action="EquipmentServlet" method="post" class="modal-content">
+			<form action="UserServlet" method="post" class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add
 						User</h1>
@@ -186,7 +186,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn-primary">Save</button>
 				</div>
 			</form>
 		</div>
