@@ -105,7 +105,7 @@
 																  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 																</svg>
                                                                 </button>
-																<button type="button" class="btn btn-warning">
+																<button type="button" data-user-id="<%= u.getId() %>" class="btn btn-warning">
 																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
 																  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
 																  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -133,6 +133,7 @@
         DepartmentService ds = new DepartmentService();
         List<Departement> departments = ds.getAllDepartment();
     %>
+   <!-- user Add Modal  --> 
 	<div class="modal fade" id="addUser" aria-hidden="true"
 		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
@@ -201,6 +202,55 @@
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- user Edit Modal  -->
+	<div class="modal fade" id="userEditModal" aria-hidden="true"
+		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<form action="UserServlet" method="post" class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add
+						User</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">UserName</label> <input type="text"
+							name="userName" id="userName" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Position</label> <input type="text"
+							name="position" id="position" class="form-control">
+					</div>
+					<div class="col-4 mb-3">
+						<label class="form-label">Hire Date</label> <input type="date"
+						  name="hireDate" id="hireDate"	class="form-control">
+					</div>
+					<div class=" col-4 mb-3">
+						<label class="form-label">Department</label> <select
+							name="departement" id="departement" class="form-select">
+							<% for(Departement d:departments){ %>
+							<option value="<%=d.getId()%>"><%=d.getName() %></option>
+							<% } %>
+						</select>
+					</div>
+					<div class=" col-4 mb-3">
+						<label class="form-label">Role</label> <select id="role" name="role"
+							class="form-select">
+							<% for(Role r:roles){ %>
+							<option value="<%=r.getId()%>"><%=r.getName() %></option>
+							<% } %>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-warning">update</button>
 				</div>
 			</form>
 		</div>
