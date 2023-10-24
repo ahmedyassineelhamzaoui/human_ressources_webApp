@@ -33,4 +33,17 @@ public class OrderRepository {
 	public Order findOrderById(long id) {
 		return entityManager.find(Order.class, id);
 	}
+	public void deleteOrder(Order order) {
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.remove(order);
+			entityManager.getTransaction().commit();;
+		}catch(Exception e) {
+			if(entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+		}finally {
+			entityManager.close();
+		}
+	}
 }
