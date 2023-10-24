@@ -19,10 +19,6 @@
                     <div class="rounded-circle  overflow-hidden" style="width: 80px; height:80px;">
                         <img class="w-100" id="image"  src="images/home.png" alt="Profile image">
                     </div>
-                    <div class="d-flex flex-column text-black">
-                        <span class="fw-bold text-white">test</span>
-                        <span class="text-white" style="font-size: 12px">test</span>
-                    </div>
                     <jsp:include page="../includes/asidebar.jsp"/>
                 </div>
             </div>
