@@ -1,8 +1,8 @@
 <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
                     <li class="nav-item">
-                        <a href="dash.jsp" class="nav-link px-0 text-white">
+                        <a href="OrderServlet" class="nav-link px-0 text-white">
                             <i class="bi bi-house"></i>
-                            <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            <span class="ms-1 d-none d-sm-inline">Orders</span>
                         </a>
                     </li>
                     <li>
