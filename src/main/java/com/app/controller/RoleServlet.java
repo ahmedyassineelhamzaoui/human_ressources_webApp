@@ -50,7 +50,7 @@ public class RoleServlet extends HttpServlet {
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	        RoleService roleService = new RoleService();
-	    	String roleName = request.getParameter("role");
+	    	String roleName = request.getParameter("roleName");
 	        if (roleName.trim().isEmpty()) {
 	            String errorMessage = "Role name cannot be empty";
 	            response.sendRedirect("RoleServlet?error=" + URLEncoder.encode(errorMessage, StandardCharsets.UTF_8));
