@@ -51,38 +51,36 @@ public class DepartmentServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String headOfDepartment = request.getParameter("headOfDepartment");
-		String description = request.getParameter("description");
-		
-		String errorName = "Name can't be empty";
-		String errorDescription = "Description can't be empty";
-		String errorheadOfDepartment = "headOfDepartment can't be empty";
-		
-		RequestDispatcher dispacher = null;
+	    String name = request.getParameter("name");
+	    String headOfDepartment = request.getParameter("headOfDepartment");
+	    String description = request.getParameter("description");
 
-		
-		if(name.trim().isEmpty()) {
-			response.sendRedirect("addDepartment.jsp?errorName="+ URLEncoder.encode(errorName,StandardCharsets.UTF_8));
-		}else
-		if(description.trim().isEmpty()) {
-			response.sendRedirect("addDepartment.jsp?errorDescription="+ URLEncoder.encode(errorDescription, StandardCharsets.UTF_8));
-		}else
-		if(headOfDepartment.trim().isEmpty()) {
-			response.sendRedirect("addDepartment.jsp?errorheadOfDepartment="+ URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8));
-		}else {
-			DepartmentService departmentService = new DepartmentService();
-			List<Departement> departements = departmentService.getAllDepartment();
-			request.setAttribute("departements", departements);
-			dispacher = request.getRequestDispatcher("department.jsp");
-			Departement d = new Departement();
-			d.setName(name);
-			d.setHeadOfDepartment(headOfDepartment);
-			d.setDescription(description);
-			departmentService.addDepartment(d);
-			request.setAttribute("success", "department created successfuly");
-			dispacher.forward(request, response);
-		}
+	    String errorName = "Name can't be empty";
+	    String errorDescription = "Description can't be empty";
+	    String errorheadOfDepartment = "headOfDepartment can't be empty";
+
+	    if (name.trim().isEmpty() || description.trim().isEmpty() || headOfDepartment.trim().isEmpty()) {
+	        String redirectURL = "addDepartment.jsp?";
+	        if (name.trim().isEmpty()) {
+	            redirectURL += "errorName=" + URLEncoder.encode(errorName, StandardCharsets.UTF_8);
+	        }
+	        if (description.trim().isEmpty()) {
+	            redirectURL += "&errorDescription=" + URLEncoder.encode(errorDescription, StandardCharsets.UTF_8);
+	        }
+	        if (headOfDepartment.trim().isEmpty()) {
+	            redirectURL += "&errorheadOfDepartment=" + URLEncoder.encode(errorheadOfDepartment, StandardCharsets.UTF_8);
+	        }
+	        response.sendRedirect(redirectURL);
+	    } else {
+	        DepartmentService departmentService = new DepartmentService();
+	        Departement d = new Departement();
+	        d.setName(name);
+	        d.setHeadOfDepartment(headOfDepartment);
+	        d.setDescription(description);
+	        departmentService.addDepartment(d);
+	        response.sendRedirect("DepartmentServlet");
+	    }
 	}
+
 
 }
