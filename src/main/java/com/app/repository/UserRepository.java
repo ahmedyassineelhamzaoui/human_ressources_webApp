@@ -75,7 +75,10 @@ public class UserRepository {
 			entityManager.close();
 		}
 	}
-	public void deleteUser(User user) {
-		entityManager.remove(user);
+	public void deleteUser(long id) {
+		entityManager.getTransaction().begin();
+		User u = entityManager.find(User.class, id);
+		entityManager.remove(u);
+		entityManager.getTransaction().commit();
 	}
 }

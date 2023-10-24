@@ -31,15 +31,25 @@ public class UserServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		UserService userService = new UserService();
-		List<User> users = userService.getAllUsers();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
-		request.setAttribute("users", users);
-		dispatcher.forward(request,response);
+	    if(request.getParameter("userId") !=null) {
+			long userId = Integer.parseInt(request.getParameter("userId"));
+			try {
+				UserService userService = new UserService();
+				userService.deleteUser(userId);
+				response.setStatus(HttpServletResponse.SC_OK);
+			}catch (Exception e) {
+			    e.printStackTrace(); 
+			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			}
+	    }else {
+	    	UserService userService = new UserService();
+			List<User> users = userService.getAllUsers();
+			RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
+			request.setAttribute("users", users);
+			dispatcher.forward(request,response);
+	    }
+		
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String userName = request.getParameter("userName");
