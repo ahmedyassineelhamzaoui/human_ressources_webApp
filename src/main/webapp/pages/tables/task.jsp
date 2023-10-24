@@ -1,8 +1,8 @@
 <%@ page import="com.app.entity.Departement" %>
 <%@ page import="java.util.List" %>
-<% if (session.getAttribute("userLogin") ==null){
+<%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
-}%>
+}%> --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,8 +19,8 @@
                     <div class="rounded-circle  overflow-hidden" style="width: 80px; height:80px;">
                         <img class="w-100" id="image"  src="../images/home.png" alt="Profile image">
                     </div>
-                    <jsp:include page="../includes/asidebar.jsp"/>
                 </div>
+                <jsp:include page="../includes/asidebar.jsp"/>
             </div>
         </div>
 
