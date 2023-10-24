@@ -1,6 +1,9 @@
 package com.app.repository;
 
 import com.app.util.HibernateUtil;
+
+import java.util.List;
+
 import com.app.entity.Order;
 import jakarta.persistence.EntityManager;
 public class OrderRepository {
@@ -23,5 +26,8 @@ public class OrderRepository {
 			entityManager.close();
 		}
 		
+	}
+	public List<Order> getAllOrders(){
+		return entityManager.createQuery("SELECT o Order o",Order.class).getResultList();
 	}
 }
