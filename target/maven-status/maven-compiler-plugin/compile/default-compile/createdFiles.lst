@@ -1,6 +1,8 @@
 com\app\service\EquipmentService.class
 com\app\controller\EditUserServlet.class
+com\app\repository\OrderRepository.class
 com\app\repository\EquipmentRepository.class
+com\app\entity\Order.class
 com\app\repository\RoleRepository.class
 com\app\controller\LoginServlet.class
 com\app\repository\DepartmentRepository.class
@@ -11,6 +13,7 @@ com\app\controller\UserServlet.class
 com\app\service\RoleService.class
 com\app\service\UserService.class
 com\app\controller\DepartmentServlet.class
+com\app\service\OrderService.class
 com\app\service\TaskService.class
 com\app\entity\Equipement.class
 com\app\service\DepartmentService.class

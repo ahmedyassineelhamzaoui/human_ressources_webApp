@@ -4,6 +4,10 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error404.jsp</location>
+  </error-page>
   <servlet>
     <description></description>
     <display-name>DepartmentServlet</display-name>
@@ -74,17 +78,17 @@
     <servlet-name>TaskServlet</servlet-name>
     <servlet-class>com.app.controller.TaskServlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>TaskServlet</servlet-name>
     <url-pattern>/TaskServlet</url-pattern>
     <url-pattern>/pages/tables/TaskServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <display-name>EditTaskServlet</display-name>
     <servlet-name>EditTaskServlet</servlet-name>
     <servlet-class>com.app.controller.EditTaskServlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>EditTaskServlet</servlet-name>
     <url-pattern>/EditTaskServlet</url-pattern>
     <url-pattern>/pages/tables/EditTaskServlet</url-pattern>
