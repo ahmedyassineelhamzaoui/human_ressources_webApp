@@ -42,16 +42,19 @@
                         <%--             Page Heading --%>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h3 class="mb-0 text-secondary">users</h3>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser">
+                             + Add User
+                            </button>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
-                                <div class="card shadow mb-4 col-8">
+                                <div style="width:100%" class="card shadow mb-4 col-8">
                                     <%--                  Card Header - Dropdown ----%>
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">users</h6>
                                     </div>
                                     <%--                  -- Card Body ----%>
-                                    <div class="card-body">
+                                    <div  class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-striped border">
                                                 <thead class="bg-secondary bg-opacity-25">
