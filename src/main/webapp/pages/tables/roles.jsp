@@ -20,8 +20,8 @@
                     <div class="rounded-circle  overflow-hidden" style="width: 80px; height:80px;">
                         <img class="w-100" id="image"  src="../images/home.png">
                     </div>
-                    <jsp:include page="../includes/asidebar.jsp"/>
                 </div>
+                <jsp:include page="../includes/asidebar.jsp"/>
             </div>
         </div>
 
