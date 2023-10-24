@@ -53,14 +53,14 @@ public class RoleServlet extends HttpServlet {
 	    	String roleName = request.getParameter("role");
 	        if (roleName.trim().isEmpty()) {
 	            String errorMessage = "Role name cannot be empty";
-	            response.sendRedirect("pages/tables/roles.jsp?error=" + URLEncoder.encode(errorMessage, StandardCharsets.UTF_8));
+	            response.sendRedirect("RoleServlet?error=" + URLEncoder.encode(errorMessage, StandardCharsets.UTF_8));
 	            System.out.println("name can't be empty");
 	        } else {
 	            Role role = new Role();
 	            role.setName(roleName);
 	            roleService.createRole(role);
 	            String successMessage="role created successfuly";
-	            response.sendRedirect("pages/tables/roles.jsp?success="+URLEncoder.encode(successMessage,StandardCharsets.UTF_8));
+	            response.sendRedirect("RoleServlet?success="+URLEncoder.encode(successMessage,StandardCharsets.UTF_8));
 	        }
 	    }
 
