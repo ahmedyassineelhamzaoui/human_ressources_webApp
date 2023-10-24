@@ -20,4 +20,7 @@ public class OrderService {
 	public Order findOrderById(long id) {
 		return orderRepository.findOrderById(id);
 	}
+	public void deleteOrder(Order order) {
+		orderRepository.deleteOrder(order);
+	}
 }
