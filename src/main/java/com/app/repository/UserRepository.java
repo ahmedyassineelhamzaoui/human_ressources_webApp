@@ -75,4 +75,7 @@ public class UserRepository {
 			entityManager.close();
 		}
 	}
+	public void deleteUser(User user) {
+		entityManager.remove(user);
+	}
 }
