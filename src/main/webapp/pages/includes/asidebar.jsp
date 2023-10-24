@@ -12,6 +12,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="RoleServlet" class="nav-link px-0 text-white">
+                            <i class="bi bi-speedometer2"></i>
+                            <span class="ms-1 d-none d-sm-inline">Roles</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="DepartmentServlet" class="nav-link px-0 text-white">
                             <i class="bi bi-speedometer2"></i>
                             <span class="ms-1 d-none d-sm-inline">Department</span>
