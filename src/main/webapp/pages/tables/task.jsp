@@ -40,13 +40,11 @@
                     <%--          Begin Page Content ----%>
                     <div class="container-fluid">
                         <%--             Page Heading --%>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h3 class="mb-0 text-secondary">Department</h3>
-                            </div>
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h3 class="mb-0 text-secondary">Department</h3>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTask">
-                                Add Task
-                            </button>
+                           + Add Task
+                         </button>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
