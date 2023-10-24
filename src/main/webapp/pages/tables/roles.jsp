@@ -18,7 +18,7 @@
                 <a href="#" class="pb-3 mb-md-0 text-decoration-none text-dark fs-5 d-none d-sm-inline">Resourcium<span class="text-white">Optima</span></a>
                 <div class="d-flex flex-column mx-auto my-3 d-none d-sm-inline">
                     <div class="rounded-circle  overflow-hidden" style="width: 80px; height:80px;">
-                        <img class="w-100" id="image"  src="images/home.png">
+                        <img class="w-100" id="image"  src="../images/home.png">
                     </div>
                     <div class="d-flex flex-column text-black">
                         <span class="fw-bold text-white">test</span>

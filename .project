@@ -46,4 +46,11 @@
 		<nature>org.jboss.tools.cdi.core.cdinature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/pages/images/home.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Downloads/lotus-flower-1805784_1280.png</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

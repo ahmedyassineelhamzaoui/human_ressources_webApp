@@ -48,7 +48,7 @@
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                                 <h3 class="mb-0 text-secondary">Department</h3>
                             </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTask">
                                 Add Task
                             </button>
                         </div>
@@ -102,5 +102,48 @@
         </div>
     </div>
 </div>
-
+<div class="modal fade" id="addTask" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <form  action="TaskServlet" method="post" class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+           <div>
+              <label  class="form-label">deadline</label>
+		      <input type="date" name="deadline" placeholder="deadline" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">description</label>
+		      <input type="text" name="description" placeholder="description" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">status</label>
+		      <input type="text" name="status" placeholder="status" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">priority</label>
+		      <input type="text" name="priority" placeholder="priority" class="form-control">
+           </div>
+		   <div>
+              <label  class="form-label">status</label>
+		      <input type="text" name="status" placeholder="status" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">User</label>
+              <select class="form-select" name="user">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+              </select> 
+           </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save </button>
+      </div>
+    </form>
+  </div>
+</div>
 <jsp:include page="../includes/script.jsp"/>
