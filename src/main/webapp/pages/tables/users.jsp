@@ -1,12 +1,5 @@
 <%@ page import="com.app.entity.User" %>
 <%@ page import="java.util.List" %>
-<%--<% if (request.getAttribute("message") != null) { %>--%>
-<%--&lt;%&ndash;<div class="w-100">&ndash;%&gt;--%>
-<%--<h2 class="success-message text-danger d-flex justify-content-center">--%>
-<%--    <%= request.getAttribute("message") %>--%>
-<%--</h2>--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--<% } %>--%>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
