@@ -1,6 +1,9 @@
 package com.app.service;
 
 import com.app.repository.OrderRepository;
+
+import java.util.List;
+
 import com.app.entity.Order;
 public class OrderService {
 
@@ -10,5 +13,8 @@ public class OrderService {
 	}
 	public void addOrder(Order order) {
 		orderRepository.addOrder(order);
+	}
+	public List<Order> getAllOrders(){
+		return orderRepository.getAllOrders();
 	}
 }
