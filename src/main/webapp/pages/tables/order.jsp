@@ -45,7 +45,7 @@
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
-                                <div class="card shadow mb-4 col-8">
+                                <div style="width: 100%" class="card shadow mb-4 col-8">
                                     <%--                  Card Header - Dropdown ----%>
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Orders</h6>
@@ -72,10 +72,7 @@
                                                     <td><p></p></td>
                                                     <td><p></p></td>
                                                     <td>
-                                                        <form action="EmployeesServlet" method="post">
-                                                            <input type="text" value=" name="userId" hidden>
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
+                                                     
                                                     </td>
                                                 </tr>
                                                 
