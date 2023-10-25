@@ -2,6 +2,8 @@ package human_ressources;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,4 +65,18 @@ public class DepartmentServiceTest {
 
 	        departmentService.removeDepartment(deparmentFound);
 	    }
+     @Test
+     public void testGetAllDepartment() {
+ 	 List<Departement> departmentsBefor = departmentService.getAllDepartment();
+ 	 Departement departement = new Departement();
+ 	 departement.setDescription("descr");
+ 	 departement.setHeadOfDepartment("headofdepart");
+ 	 departement.setName("name");
+ 	 departmentService.addDepartment(departement);
+ 	 List<Departement> departmentsAfter = departmentService.getAllDepartment();
+ 	 assertNotNull(departmentsAfter);
+ 	 assertFalse(departmentsAfter.isEmpty());
+ 	 assertEquals(departmentsBefor.size() +1, departmentsAfter.size());
+ 	 departmentService.removeDepartment(departement);
+  }
 }
