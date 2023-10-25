@@ -110,6 +110,18 @@ public class UserServiceTest {
 		 assertNull(deletedUser);
 		 
 	 }
-	
+	 @Test
+	    public void testFindByUserLogin() {
+	        User testUser = new User();
+	        testUser.setUsername("testuser");
+	        testUser.setEmail("testuser@example.com");
+	        userService.addUser(testUser);
+
+	        User foundUser = userService.findByUserLogin("testuser");
+
+	        assertNotNull(foundUser);
+
+	        userService.deleteUser(foundUser.getId());
+	    }
 
 }
