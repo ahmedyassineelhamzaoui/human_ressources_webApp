@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.app.entity.Departement;
+import com.app.entity.User;
 import com.app.service.DepartmentService;
 
 public class DepartmentServiceTest {
@@ -48,4 +49,18 @@ public class DepartmentServiceTest {
             Departement depDeleted = departmentService.findById(d.getId());
             assertNull(depDeleted);
         }
+     @Test
+	    public void testFindDepartmentById() {
+	        Departement department = new Departement();
+	        department.setName("testname");
+	        department.setDescription("test description");
+	        department.setHeadOfDepartment("test head of department");
+	        departmentService.addDepartment(department);
+
+	        Departement deparmentFound = departmentService.findById(department.getId());
+
+	        assertNotNull(deparmentFound);
+
+	        departmentService.removeDepartment(deparmentFound);
+	    }
 }
