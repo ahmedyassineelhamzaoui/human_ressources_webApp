@@ -39,15 +39,14 @@ function showDeleteConfirmation(userId) {
 	    type: 'GET',
 	    data: { editId: editId },
 	    success: function(response) {
-			console.log(response);
-			const user = {
-			    username: 'JohnDoe',
-			    firstName: 'John',
-			    lastName: 'Doe',
-			};
+        console.log(response);
+	   /* document.getElementById('userName').value = user.username;
+	    document.getElementById('position').value = user.position;
+	    document.getElementById('hireDate').value = user.hireDate;
+	    document.getElementById('departement').value = user.department;
+	    document.getElementById('role').value = user.role;*/
 	    },
 	    error: function(xhr, status, error) {
-	      console.error('Failed to delete user');
 	      console.log('Status: ' + status);
 	      console.log('Error: ' + error);
 	      console.log(xhr.responseText);
@@ -95,7 +94,7 @@ function showDeleteConfirmation(userId) {
 	
 	document.querySelectorAll('.edit-user-modal').forEach((button) => {
 	  button.addEventListener('click', (event) => {
-	    let editId = event.target.getAttribute('data-edit-id');
+	    const editId = event.target.getAttribute('data-edit-id');
 	    showUserInformation(editId);
 	  });
 	});
