@@ -123,5 +123,18 @@ public class UserServiceTest {
 
 	        userService.deleteUser(foundUser.getId());
 	    }
+	 @Test
+	    public void testFindUserById() {
+	        User testUser = new User();
+	        testUser.setUsername("testuser");
+	        testUser.setEmail("testuser@example.com");
+	        userService.addUser(testUser);
+
+	        User foundUser = userService.findUserById(testUser.getId());
+
+	        assertNotNull(foundUser);
+
+	        userService.deleteUser(foundUser.getId());
+	    }
 
 }
