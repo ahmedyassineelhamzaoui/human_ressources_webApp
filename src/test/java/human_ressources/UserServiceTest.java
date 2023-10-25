@@ -4,11 +4,9 @@
 package human_ressources;
 
 import static org.junit.Assert.*;
-
+import java.util.List;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.app.service.UserService;
@@ -136,5 +134,20 @@ public class UserServiceTest {
 
 	        userService.deleteUser(foundUser.getId());
 	    }
-
+     @Test
+        public void testGetAllUser() {
+    	 List<User> listOfUsersBefor = userService.getAllUsers();
+    	 User user = new User();
+    	 user.setEmail("hello@gmail.com");
+    	 user.setFirstName("yassine");
+    	 user.setUsername("yassine09");
+    	 userService.addUser(user);
+    	 User userAdded =  userService.findUserById(user.getId());
+    	 assertNotNull(userAdded);
+    	 List<User> users = userService.getAllUsers();
+    	 assertEquals(listOfUsersBefor.size() + 1, users.size());
+    	 assertNotNull(users);
+    	 assertFalse(users.isEmpty());
+    	 userService.deleteUser(user.getId());
+     }
 }
