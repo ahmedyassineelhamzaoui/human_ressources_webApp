@@ -2,6 +2,8 @@ package human_ressources;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -76,4 +78,22 @@ public class TestEquipementService {
 
 	        equipmentService.deleteEquipment(equipmentFounded);
 	    }
+	  @Test
+	     public void testGetAllEquipment() {
+	 	 List<Equipement> equipementsBefor = equipmentService.getAllEquipment();
+		 	Equipement equipment = new Equipement();
+	 	    equipment.setName("equipment name");
+		    equipment.setStatus("valable");
+		    equipment.setMaintenanceDate(null);
+		    equipment.setPurchaseDate(null);
+		    equipment.setType("type");
+		    User user = userService.findUserById(1);
+		    equipment.setAssignedUser(user);
+		    equipmentService.SaveEquipment(equipment);
+		 	List<Equipement> equipmentsAfter = equipmentService.getAllEquipment();
+		 	assertNotNull(equipmentsAfter);
+		 	assertFalse(equipmentsAfter.isEmpty());
+		 	assertEquals(equipementsBefor.size() +1, equipmentsAfter.size());
+		 	equipmentService.deleteEquipment(equipment);
+	  }
 }
