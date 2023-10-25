@@ -116,3 +116,21 @@ function showDeleteConfirmationDepartment(departmentId) {
         }
     });
 }
+function deleteDepartmentData(departmentId) {
+	
+	  $.ajax({
+	    url: '/human_ressources/pages/tables/DepartmentServlet',
+	    type: 'GET',
+	    data: { departmentId: departmentId },
+	    success: function(response) {
+	      window.location.href = '/human_ressources/pages/tables/DepartmentServlet?success=department+deleted+successfuly';
+	    },
+	    error: function(xhr, status, error) {
+	      console.error('Failed to delete department');
+	      console.log('Status: ' + status);
+	      console.log('Error: ' + error);
+	      console.log(xhr.responseText);
+	      console.log("pages/tables/DepartmentServlet");
+      	    }
+	  });
+	}
