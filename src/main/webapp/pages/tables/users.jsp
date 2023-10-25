@@ -95,8 +95,20 @@
 															<td scope="col"><%= u.getFirstName() %> </td>
 															<td scope="col"><%= u.getLastName() %></td>
 															<td scope="col"><%= u.getPosition() %></td>
-															<td scope="col"><%= u.getRole().getName() %></td>
-															<td scope="col"><%= u.getDepartment().getName() %></td>
+															<td scope="col">
+															<% if(u.getRole() != null && u.getRole().getName() !=null ){ %>
+															<%= u.getRole().getName() %>
+															<%}else{ %>
+															   no role
+															<%} %>
+															</td>
+															<td scope="col">
+															<% if (u.getDepartment() != null && u.getDepartment().getName() != null) { %>
+															    <%= u.getDepartment().getName() %>
+															<% }else{%>
+																no department
+															<% } %>
+															</td>
 															<td scope="col"><%= u.getHireDate() %></td>
 															<td scope="col">
 															<div class="d-flex justify-content-between align-items-center">												
