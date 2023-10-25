@@ -75,8 +75,8 @@
                                                 </thead>
                                                 <tbody>
                                                 <%
-                                                
-                                                for(Equipement e:equipments){
+                                                if(request.getAttribute("equipments") !=null){
+                                                for(Equipement e:(List<Equipement>) request.getAttribute("equipments")){
                                                 %>
                                                 <tr>
                                                     <td><p><%=e.getId() %></p></td>
@@ -88,7 +88,7 @@
                                                     <td><p><%=e.getType() %></p></td>
                                                     <td></td>
                                                 </tr>
-                                                <% } %>
+                                                <% }} %>
                                                 </tbody>
                                             </table>
                                         </div>
