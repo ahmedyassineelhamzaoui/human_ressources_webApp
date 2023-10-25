@@ -18,30 +18,17 @@ import com.app.entity.*;
  */
 public class UserServiceTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+	private UserService userService;
+	
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
 	public void setUp() throws Exception {
+		userService = new UserService();
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -60,5 +47,6 @@ public class UserServiceTest {
 		user.setRole(null);
 		userService.addUser(user);
 	}
+	
 
 }
