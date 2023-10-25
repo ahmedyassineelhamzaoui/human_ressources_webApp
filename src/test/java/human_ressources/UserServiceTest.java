@@ -31,6 +31,7 @@ public class UserServiceTest {
 	
 	@After
 	public void tearDown() throws Exception {
+		userService = null;
 	}
 
 	@Test
