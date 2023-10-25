@@ -2,6 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.app.entity.User" %>
 <%@ page import="com.app.service.UserService" %>
+<%@ page import="com.app.service.EquipmentService" %>
+<%@ page import="com.app.entity.Equipement" %>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
@@ -72,16 +74,21 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <%
+                                                
+                                                for(Equipement e:equipments){
+                                                %>
                                                 <tr>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
+                                                    <td><p><%=e.getId() %></p></td>
+                                                    <td><p><%=e.getName() %></p></td>
+                                                    <td><p><%=e.getAssignedUser().getFirstName() %></p></td>
+                                                    <td><p><%=e.getMaintenanceDate() %></p></td>
+                                                    <td><p><%=e.getPurchaseDate() %></p></td>
+                                                    <td><p><%=e.getStatus() %></p></td>
+                                                    <td><p><%=e.getType() %></p></td>
                                                     <td></td>
                                                 </tr>
+                                                <% } %>
                                                 </tbody>
                                             </table>
                                         </div>

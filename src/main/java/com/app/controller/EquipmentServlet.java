@@ -15,7 +15,7 @@ import com.app.entity.Equipement;
 import com.app.entity.User;
 import com.app.service.EquipmentService;
 import com.app.service.UserService;
-
+import java.util.*;
 /**
  * Servlet implementation class EquipmentServlet
  */
@@ -34,7 +34,9 @@ public class EquipmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		EquipmentService equipmentServlet = new EquipmentService(); 
+        List<Equipement> equipments = equipmentServlet.getAllEquipment();
+        request.setAttribute("equipments", equipments);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("equipment.jsp");
 		dispatcher.forward(request, response);
 	}
