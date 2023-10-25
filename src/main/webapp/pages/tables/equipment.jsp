@@ -52,7 +52,7 @@
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
-                                <div class="card shadow mb-4 col-8">
+                                <div style="width: 100%" class="card shadow mb-4 col-8">
                                     <%--                  Card Header - Dropdown ----%>
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Equipment</h6>
