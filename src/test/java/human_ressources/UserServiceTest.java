@@ -36,17 +36,27 @@ public class UserServiceTest {
 
 	@Test
 	public void testAddUser() {
-		UserService userService = new UserService();
 		User user = new User();
-		user.setLastName(null);
-		user.setEmail(null);
-		user.setFirstName(null);
-		user.setPassword(null);
-		user.setPosition(null);
-		user.setHireDate(null);
-		user.setDepartment(null);
-		user.setRole(null);
-		userService.addUser(user);
+        user.setUsername("testuser");
+        user.setFirstName("Test");
+        user.setLastName("User");
+        user.setEmail("testuser@example.com");
+        user.setPassword("testpassword");
+        user.setPosition("Tester");
+        Role role = userService.findRoleById(1); 
+        Departement department = userService.findDepartementById(1);
+        user.setRole(role);
+        user.setDepartment(department);
+        userService.addUser(user);
+
+        User addedUser = userService.findByUserLogin("testuser");
+
+        assertNotNull(addedUser);
+        assertEquals("testuser", addedUser.getUsername());
+        assertEquals("Test", addedUser.getFirstName());
+        assertEquals("User", addedUser.getLastName());
+        assertEquals("testuser@example.com", addedUser.getEmail());
+        userService.deleteUser(addedUser.getId());
 	}
 	
 
