@@ -15,6 +15,7 @@ import java.util.List;
 
 import com.app.entity.Departement;
 import com.app.service.DepartmentService;
+import com.app.service.UserService;
 import com.app.util.HibernateUtil;
 
 
@@ -30,17 +31,17 @@ public class DepartmentServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DepartmentService departmentService = new DepartmentService();
-		String action=request.getParameter("action");
-		if("deleteDepartment".equals(action)) {
-			long departmentIdToDelete = Long.parseLong(request.getParameter("id"));
-			Departement departmentToDelete = departmentService.findById(departmentIdToDelete);
-			if(departmentToDelete !=null) {
-				departmentService.removeDepartment(departmentToDelete);
-		        String success = "department deleted successfully";
-		        response.sendRedirect(request.getContextPath() + "/pages/tables/DepartmentServlet?success="+URLEncoder.encode(success,StandardCharsets.UTF_8));
+		if(request.getParameter("departmentId") !=null) {
+			long departmentId = Integer.parseInt(request.getParameter("departmentId"));
+			Departement department =   departmentService.findById(departmentId);
+			try {
+				departmentService.removeDepartment(department);
+				response.setStatus(HttpServletResponse.SC_OK);
+			}catch (Exception e) {
+			    e.printStackTrace(); 
+			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
-			
-		}else {
+	    }else {
 			List<Departement> departements = departmentService.getAllDepartment();
 			request.setAttribute("departements", departements);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");

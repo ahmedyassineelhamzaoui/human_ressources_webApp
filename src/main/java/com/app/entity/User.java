@@ -145,5 +145,11 @@ public class User {
 					+ hireDate + ", department=" + department + ", role=" + role + ", assignedEquipment="
 					+ assignedEquipment + ", assignedTasks=" + assignedTasks + ", orders=" + orders + "]";
 		}
+		public void removeDepartment() {
+	        if (department != null) {
+	            department.getUsers().remove(this);
+	            department = null;
+	        }
+	    }
 
 }
