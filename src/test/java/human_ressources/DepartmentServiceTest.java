@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.app.entity.Departement;
 import com.app.service.DepartmentService;
 
 public class DepartmentServiceTest {
@@ -21,9 +22,18 @@ public class DepartmentServiceTest {
 		departmentService = null;
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+	  @Test
+	    public void testAddDepartment() {
+	        Departement department = new Departement();
+	        department.setName("Test Department");
+	        department.setHeadOfDepartment("Test Head");
+	        department.setDescription("Test Description");
+
+	        departmentService.addDepartment(department);
+
+	        Departement departement =  departmentService.findById(department.getId());
+	        assertNotNull(departement);
+	        departmentService.removeDepartment(department);
+	    }
 
 }
