@@ -24,8 +24,6 @@ public class DepartmentRepository {
 				entityManager.getTransaction().rollback();
 			}
 			e.getMessage();
-		}finally {
-			entityManager.close();
 		}
 	}
 	public List<Departement> getAllDepartments(){
