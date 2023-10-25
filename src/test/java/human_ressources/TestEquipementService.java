@@ -58,4 +58,22 @@ public class TestEquipementService {
         Equipement equipmentDeleted = equipmentService.findById(equipmentFounded.getId());
         assertNull(equipmentDeleted);
      }
+	 @Test
+	    public void testFindEquipmentById() {
+		 Equipement equipment = new Equipement();
+	 	    equipment.setName("equipment name");
+		    equipment.setStatus("valable");
+		    equipment.setMaintenanceDate(null);
+		    equipment.setPurchaseDate(null);
+		    equipment.setType("type");
+		    User user = userService.findUserById(1);
+		    equipment.setAssignedUser(user);
+		    equipmentService.SaveEquipment(equipment);
+
+		    Equipement equipmentFounded = equipmentService.findById(equipment.getId());
+
+	        assertNotNull(equipmentFounded);
+
+	        equipmentService.deleteEquipment(equipmentFounded);
+	    }
 }
