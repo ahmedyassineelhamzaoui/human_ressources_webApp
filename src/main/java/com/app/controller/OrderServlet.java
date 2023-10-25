@@ -37,6 +37,9 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderService orderService = new OrderService();
 		List<Order> orders = orderService.getAllOrders();
+		for(Order o:orders) {
+			System.out.println(o.getUser().getEmail());
+		}
 		request.setAttribute("orders", orders);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("order.jsp");
 		dispatcher.forward(request, response);

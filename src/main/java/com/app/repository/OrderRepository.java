@@ -28,7 +28,7 @@ public class OrderRepository {
 		
 	}
 	public List<Order> getAllOrders(){
-		return entityManager.createQuery("SELECT o Order o",Order.class).getResultList();
+		return entityManager.createQuery("SELECT o FROM Order o",Order.class).getResultList();
 	}
 	public Order findOrderById(long id) {
 		return entityManager.find(Order.class, id);
