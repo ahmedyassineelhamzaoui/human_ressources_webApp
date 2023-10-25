@@ -78,12 +78,7 @@
                                                     <td><p></p></td>
                                                     <td><p></p></td>
                                                     <td><p></p></td>
-                                                    <td>
-                                                        <form action="EmployeesServlet" method="post">
-                                                            <input type="text" value="" name="userId" hidden>
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                    </td>
+                                                    <td></td>
                                                 </tr>
                                                 </tbody>
                                             </table>

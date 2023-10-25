@@ -74,8 +74,7 @@
 												<table class="table table-striped border">
 													<thead class="bg-secondary bg-opacity-25">
 														<tr>
-															<th scope="col">User Name</th>
-															<th scope="col">Email</th>
+															<th scope="col">UserName</th>
 															<th scope="col">First Name</th>
 															<th scope="col">Last Name</th>
 															<th scope="col">Position</th>
@@ -86,21 +85,36 @@
 														</tr>
 													</thead>
 													<tbody>
-														<% if (request.getAttribute("users") != null) {
-                                                    List<User> users = (List<User>) request.getAttribute("users");
-                                                    for (User u:users) {%>
-														<tr> 
-														    <td></td>
-														    <td></td>
-														    <td></td>	
-															<td></td>															<td><p><%= u.getRole().getName() %></p></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
-															<td></td>
+													<% 
+													if(request.getAttribute("users") !=null){
+													List<User> users= (List<User>) request.getAttribute("users");
+													   for(User u:users){
+													%>
+													   <tr>
+															<td scope="col"><%=u.getUsername() %></td>
+															<td scope="col"><%= u.getFirstName() %> </td>
+															<td scope="col"><%= u.getLastName() %></td>
+															<td scope="col"><%= u.getPosition() %></td>
+															<td scope="col"><%= u.getRole().getName() %></td>
+															<td scope="col"><%= u.getDepartment().getName() %></td>
+															<td scope="col"><%= u.getHireDate() %></td>
+															<td scope="col">
+															<div class="d-flex justify-content-between align-items-center">												
+																<button type="button" class="btn btn-danger" onclick="showDeleteConfirmation(<%= u.getId() %>);">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+																  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+																</svg>
+                                                                </button>
+																<button type="button" data-edit-id="<%= u.getId() %>" class="btn btn-warning edit-user-modal">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+																  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+																  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+																</svg>
+																</button>
+															</div>
+                                                            </td>
 														</tr>
-														<%} } %>
+												    <%}} %>
 													</tbody>
 												</table>
 											</div>
@@ -119,6 +133,7 @@
         DepartmentService ds = new DepartmentService();
         List<Departement> departments = ds.getAllDepartment();
     %>
+   <!-- user Add Modal  --> 
 	<div class="modal fade" id="addUser" aria-hidden="true"
 		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
@@ -187,6 +202,28 @@
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- user Edit Modal  -->
+	<div class="modal fade" id="userEditModal" aria-hidden="true"
+		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<form action="UserServlet" method="post" class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add
+						User</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div id="userInformation" class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-warning">update</button>
 				</div>
 			</form>
 		</div>

@@ -1,7 +1,6 @@
 package com.app.controller;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,13 +11,16 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import org.json.JSONObject;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.app.entity.Departement;
 import com.app.entity.Role;
 import com.app.entity.User;
 import com.app.service.UserService;
-import com.app.util.HibernateUtil;
+import com.google.gson.Gson;
+
 import java.util.Date;
 
 public class UserServlet extends HttpServlet {
@@ -41,7 +43,19 @@ public class UserServlet extends HttpServlet {
 			    e.printStackTrace(); 
 			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
+	    }else if(request.getParameter("editId") !=null){
+	    	long editId = Integer.parseInt(request.getParameter("editId"));
+			try {
+				UserService userService = new UserService();
+				User user = userService.findUserById(editId);	        
+		        response.getWriter().write("users");
+				response.setStatus(HttpServletResponse.SC_OK);
+			}catch (Exception e) {
+			    e.printStackTrace(); 
+			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			}
 	    }else {
+
 	    	UserService userService = new UserService();
 			List<User> users = userService.getAllUsers();
 			RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
