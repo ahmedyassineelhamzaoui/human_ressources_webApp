@@ -22,8 +22,6 @@ public class EquipmentRepository {
 			if(entityManager.getTransaction().isActive()) {
 				entityManager.getTransaction().rollback();
 			}
-		}finally {
-			entityManager.close();
 		}
 	}
 	public List<Equipement> getAllEquipment(){
