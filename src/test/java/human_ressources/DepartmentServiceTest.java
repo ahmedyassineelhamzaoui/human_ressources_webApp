@@ -35,5 +35,17 @@ public class DepartmentServiceTest {
 	        assertNotNull(departement);
 	        departmentService.removeDepartment(department);
 	    }
-
+     @Test
+        public void testRemoveDepartment() {
+    	    Departement d = new Departement();
+    	    d.setDescription("ok");
+            d.setHeadOfDepartment("silmpo");
+            d.setName("isio");
+            departmentService.addDepartment(d);
+            Departement dep = departmentService.findById(d.getId());
+            assertNotNull(dep);
+            departmentService.removeDepartment(dep);
+            Departement depDeleted = departmentService.findById(d.getId());
+            assertNull(depDeleted);
+        }
 }
