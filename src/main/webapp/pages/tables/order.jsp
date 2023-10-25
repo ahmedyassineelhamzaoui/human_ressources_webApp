@@ -115,7 +115,7 @@
            </div>
            <div>
               <label  class="form-label">Equipment</label>
-		      <select class="form-select" name="user">
+		      <select class="form-select" name="equipment">
                   <% EquipmentService equipmentService = new EquipmentService();
                     List<Equipement> equipments  = equipmentService.getAllEquipment();
                     for(Equipement e:equipments){
