@@ -2,6 +2,8 @@ package com.app.service;
 
 import com.app.repository.UserRepository;
 import java.util.List;
+import java.util.Observable;
+
 import jakarta.persistence.*;
 
 import com.app.entity.Departement;
@@ -14,6 +16,7 @@ public class UserService {
 	public UserService() {
 	    userRepository = new UserRepository();
 	}
+	
 	public void addUser(User user) {
 		userRepository.addUser(user);
 	}
