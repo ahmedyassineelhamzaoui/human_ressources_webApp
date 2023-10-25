@@ -1,5 +1,9 @@
 <%@ page import="com.app.entity.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.app.service.EquipmentService" %>
+<%@ page import="com.app.entity.User" %>
+<%@ page import="com.app.entity.Equipement"%>
+<%@ page import="com.app.service.UserService" %>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
@@ -88,5 +92,52 @@
             </div>
         </div>
     </div>
+</div>
+<!-- Add modal for Order -->
+<div class="modal fade" id="addOrder" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <form action="OrderServlet" method="post" class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add Order</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+           <div>
+              <label  class="form-label">reservation date</label>
+		      <input type="date" name="	reservationDate" placeholder="reservation date" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">return Date</label>
+		      <input type="date" name="returnDate" placeholder="return Date" class="form-control">
+           </div>
+           <div>
+              <label  class="form-label">Equipment</label>
+		      <select class="form-select" name="user">
+                  <% EquipmentService equipmentService = new EquipmentService();
+                    List<Equipement> equipments  = equipmentService.getAllEquipment();
+                    for(Equipement e:equipments){
+                  %>
+                  <option value="<%= e.getId()%>"><%=e.getName() %></option>
+                  <% } %>
+              </select> 
+           </div>
+           <div>
+              <label  class="form-label">User</label>
+              <select class="form-select" name="user">
+                  <% UserService userService = new UserService();
+                    List<User> users  = userService.getAllUsers();
+                    for(User u:users){
+                  %>
+                  <option value="<%= u.getId()%>"><%= u.getFirstName()+" "+u.getLastName() %></option>
+                  <% } %>
+              </select> 
+           </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save </button>
+      </div>
+    </form>
+  </div>
 </div>
 <jsp:include page="../includes/script.jsp"/>
