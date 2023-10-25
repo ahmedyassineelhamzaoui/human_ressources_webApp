@@ -44,7 +44,6 @@ public class OrderServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("sevlet called");
 		OrderService orderService = new OrderService();
 		String reservationDate = request.getParameter("reservationDate");
 		String returnDate      = request.getParameter("returnDate");
