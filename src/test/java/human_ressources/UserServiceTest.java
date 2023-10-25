@@ -58,6 +58,41 @@ public class UserServiceTest {
         assertEquals("testuser@example.com", addedUser.getEmail());
         userService.deleteUser(addedUser.getId());
 	}
+	 @Test
+	    public void testUpdateUser() {
+	        User user = new User();
+	        user.setUsername("testuser");
+	        user.setFirstName("InitialFirst");
+	        user.setLastName("InitialLast");
+	        user.setEmail("initial@example.com");
+	        user.setPassword("initialpassword");
+	        user.setPosition("InitialPosition");
+	        Role role = userService.findRoleById(1); 
+	        Departement department = userService.findDepartementById(1);
+	        user.setRole(role);
+	        user.setDepartment(department);
+	        userService.addUser(user);
+
+	        User addedUser = userService.findByUserLogin("testuser");
+	        assertNotNull(addedUser);
+
+	        addedUser.setFirstName("UpdatedFirst");
+	        addedUser.setLastName("UpdatedLast");
+	        addedUser.setEmail("updated@example.com");
+	        addedUser.setPosition("UpdatedPosition");
+
+	        userService.updateUser(addedUser, addedUser.getId());
+
+	        User updatedUser = userService.findUserById(addedUser.getId());
+	        assertNotNull(updatedUser);
+
+	        assertEquals("UpdatedFirst", updatedUser.getFirstName());
+	        assertEquals("UpdatedLast", updatedUser.getLastName());
+	        assertEquals("updated@example.com", updatedUser.getEmail());
+	        assertEquals("UpdatedPosition", updatedUser.getPosition());
+
+	        userService.deleteUser(addedUser.getId());
+	    }
 	
 
 }

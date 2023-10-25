@@ -70,8 +70,6 @@ public class UserRepository {
 				entityManager.getTransaction().rollback();
 			}
 			e.getMessage();
-		}finally {
-			entityManager.close();
 		}
 	}
 	public void deleteUser(long id) {
