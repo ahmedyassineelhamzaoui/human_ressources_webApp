@@ -1,5 +1,7 @@
 <%@ page import="com.app.entity.Departement" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.app.entity.User" %>
+<%@ page import="com.app.service.UserService" %>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
@@ -124,9 +126,12 @@
            <div>
               <label  class="form-label">User</label>
               <select class="form-select" name="user">
-                  <option value="Low">Low</option>
-                  <option value="Medium">Medium</option>
-                  <option value="High">High</option>
+                  <% UserService userService = new UserService();
+                    List<User> users  = userService.getAllUsers();
+                    for(User u:users){
+                  %>
+                  <option value="<%= u.getId()%>"><%= u.getFirstName()+" "+u.getLastName() %></option>
+                  <% } %>
               </select> 
            </div>
       </div>
