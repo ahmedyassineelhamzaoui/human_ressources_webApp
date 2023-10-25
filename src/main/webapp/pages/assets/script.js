@@ -99,3 +99,20 @@ function showDeleteConfirmation(userId) {
 	  });
 	});
 
+
+function showDeleteConfirmationDepartment(departmentId) {
+	console.log("ok")
+    Swal.fire({
+        title: 'Delete Department',
+        text: 'Are you sure you want to delete this depaertment?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel',
+        confirmButtonColor: '#d33',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteDepartmentData(departmentId);
+        }
+    });
+}
