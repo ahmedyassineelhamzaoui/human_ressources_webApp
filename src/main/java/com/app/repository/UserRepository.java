@@ -25,8 +25,6 @@ public class UserRepository {
 				entityManager.getTransaction().rollback();
 			}
 			e.getMessage();
-		}finally{
-			entityManager.close();
 		}
 		
 		
@@ -44,6 +42,7 @@ public class UserRepository {
 	    } catch (NoResultException e) {
 	        return null; 
 	    }
+		
 	}
 	public Role findRoleById(long id) {
 		return entityManager.find(Role.class, id);
