@@ -48,7 +48,7 @@ public class EquipmentServlet extends HttpServlet {
 		String maintenaceDateStr =request.getParameter("maintenaceDate");
 		String status =request.getParameter("status");
 		String type =request.getParameter("type");
-		String user_id =request.getParameter("user_id");
+		String user_id =request.getParameter("user");
 		UserService  userService = new UserService();
 		User user = userService.findUserById(Integer.parseInt(user_id));
 		EquipmentService equipmentService = new EquipmentService();
