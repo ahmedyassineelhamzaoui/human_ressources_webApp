@@ -46,6 +46,9 @@
                         <%--             Page Heading --%>
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h3 class="mb-0 text-secondary">Orders</h3>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrder">
+                             + Add Order
+                            </button>
                         </div>
                         <div class="row">
                             <div class=" d-flex justify-content-center ">
