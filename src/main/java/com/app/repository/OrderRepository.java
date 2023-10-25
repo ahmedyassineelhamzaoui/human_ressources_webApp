@@ -13,6 +13,8 @@ public class OrderRepository {
 		this.entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
 	}
 	public void addOrder(Order order) {
+		System.out.println("add order called repository");
+
 		try {
 			entityManager.getTransaction().begin();
 			entityManager.persist(order);

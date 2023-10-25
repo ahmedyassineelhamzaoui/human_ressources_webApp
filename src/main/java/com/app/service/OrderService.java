@@ -12,6 +12,7 @@ public class OrderService {
 		this.orderRepository = new OrderRepository();
 	}
 	public void addOrder(Order order) {
+		System.out.println("add order called service");
 		orderRepository.addOrder(order);
 	}
 	public List<Order> getAllOrders(){
