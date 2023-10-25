@@ -93,6 +93,23 @@ public class UserServiceTest {
 
 	        userService.deleteUser(addedUser.getId());
 	    }
+	 @Test
+	 public void tsetDeleteUser() {
+		 User user = new User();
+		 user.setFirstName("testfirstname");
+		 user.setLastName("testlastname");
+		 user.setUsername("testUsername");
+		 user.setEmail("testemail");
+		 user.setPosition("tesposititron");
+		 user.setPassword("ojkskosk");
+		 userService.addUser(user);
+		 User addedUser = userService.findByUserLogin("testUsername");
+		 assertNotNull(addedUser);
+		 userService.deleteUser(addedUser.getId());
+		 User deletedUser = userService.findByUserLogin("testUsername");
+		 assertNull(deletedUser);
+		 
+	 }
 	
 
 }
