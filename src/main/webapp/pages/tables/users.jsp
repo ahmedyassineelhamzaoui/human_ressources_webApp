@@ -180,21 +180,21 @@
 					<div class="row">
 						<div class="col-6 mb-3">
 							<label class="form-label">UserName</label> <input type="text"
-								name="userName" class="form-control">
+								name="userName"  class="form-control">
 						</div>
 						<div class=" col-6 mb-3">
 							<label class="form-label">Position</label> <input type="text"
-								name="position" class="form-control">
+								name="position"  class="form-control">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-4 mb-3">
 							<label class="form-label">Hire Date</label> <input type="date"
-							  name="hireDate"	class="form-control">
+							  name="hireDate" 	class="form-control">
 						</div>
 						<div class=" col-4 mb-3">
 							<label class="form-label">Department</label> <select
-								name="departement" class="form-select">
+								name="departement"  class="form-select">
 								<% for(Departement d:departments){ %>
 								<option value="<%=d.getId()%>"><%=d.getName() %></option>
 								<% } %>
@@ -202,7 +202,7 @@
 						</div>
 						<div class=" col-4 mb-3">
 							<label class="form-label">Role</label> <select name="role"
-								class="form-select">
+								 class="form-select">
 								<% for(Role r:roles){ %>
 								<option value="<%=r.getId()%>"><%=r.getName() %></option>
 								<% } %>
@@ -232,19 +232,19 @@
 				<div id="userInformation" class="modal-body">
 					<div class="mb-3">
 						<label class="form-label">Email address</label> <input
-							type="email" name="email" class="form-control">
+							type="email" id="email" name="email" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Password</label> <input type="password"
-							name="password" class="form-control">
+							name="password" id="password" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Hire Date</label> <input type="date"
-						  name="hireDate"	class="form-control">
+						  name="hireDate" id="hireDate"	class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Department</label> <select
-							name="departement" class="form-select">
+							name="departement" id="departement" class="form-select">
 							<% for(Departement d:departments){ %>
 							<option value="<%=d.getId()%>"><%=d.getName() %></option>
 							<% } %>
@@ -252,7 +252,7 @@
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Role</label> <select name="role"
-							class="form-select">
+							id="role" class="form-select">
 							<% for(Role r:roles){ %>
 							<option value="<%=r.getId()%>"><%=r.getName() %></option>
 							<% } %>

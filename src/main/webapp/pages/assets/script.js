@@ -63,7 +63,12 @@ function showDeleteConfirmation(userId) {
 			  const userName = response.name;
 		      const modal = $('#editUserModal');
 		      const form  = $('#editUserModalForm');
-		       form.attr('action', 'EditUserServlet?userIdToEdit='+ userId);
+		      const email = $('#email');
+		      const password = $('#password');
+		      const role   = $('#role');
+		      const departement = $('#departement');
+		      const hireDate = $('#hireDate');
+		      form.attr('action', 'EditUserServlet?userIdToEdit='+ userId);
 		       modal.modal('show');
 	    },
 	    error: function(xhr, status, error) {
