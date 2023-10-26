@@ -104,4 +104,15 @@
     <url-pattern>/OrderServlet</url-pattern>
     <url-pattern>/pages/tables/OrderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditRoleServlet</display-name>
+    <servlet-name>EditRoleServlet</servlet-name>
+    <servlet-class>com.app.controller.EditRoleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditRoleServlet</servlet-name>
+    <url-pattern>/EditRoleServlet</url-pattern>
+    <url-pattern>/pages/tables/EditRoleServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
