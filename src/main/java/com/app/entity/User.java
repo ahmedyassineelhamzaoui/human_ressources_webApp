@@ -151,6 +151,12 @@ public class User {
 	            department = null;
 	        }
 	    }
+		public void removeRole() {
+			if(role != null) {
+				role.getUsers().remove(this);
+				role = null;
+			}
+		}
 		
 
 }
