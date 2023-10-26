@@ -146,7 +146,24 @@ function showDeleteConfirmationRole(roleId){
         confirmButtonColor: '#d33',
     }).then((result) => {
         if (result.isConfirmed) {
-            deleteDepartmentData(roleId);
+            deleteRoleData(roleId);
         }
     });
+}
+function deleteRoleData(roleId){
+	 $.ajax({
+	    url: '/human_ressources/pages/tables/RoleServlet',
+	    type: 'GET',
+	    data: { roleId: roleId },
+	    success: function(response) {
+	      window.location.href = '/human_ressources/pages/tables/RoleServlet?success=department+deleted+successfuly';
+	    },
+	    error: function(xhr, status, error) {
+	      console.error('Failed to delete department');
+	      console.log('Status: ' + status);
+	      console.log('Error: ' + error);
+	      console.log(xhr.responseText);
+	      console.log("pages/tables/RoleServlet");
+      	    }
+	  });
 }
