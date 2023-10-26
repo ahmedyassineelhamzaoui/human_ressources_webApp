@@ -1,5 +1,7 @@
 <%@ page import="com.app.entity.Departement" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.app.entity.User" %>
+<%@ page import="com.app.service.UserService" %>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
@@ -122,10 +124,6 @@
 		      <input type="text" name="description" placeholder="description" class="form-control">
            </div>
            <div>
-              <label  class="form-label">status</label>
-		      <input type="text" name="status" placeholder="status" class="form-control">
-           </div>
-           <div>
               <label  class="form-label">priority</label>
 		      <input type="text" name="priority" placeholder="priority" class="form-control">
            </div>
@@ -136,15 +134,20 @@
            <div>
               <label  class="form-label">User</label>
               <select class="form-select" name="user">
-                  <option value="Low">Low</option>
-                  <option value="Medium">Medium</option>
-                  <option value="High">High</option>
+              <%
+              UserService  userService = new UserService();
+              List<User> users = userService.getAllUsers();
+              if(!users.isEmpty()){
+            	  for(User u:users){
+              %>
+                  <option value="Low"><%=u.getFirstName()+" "+u.getLastName() %></option>
+              <%}} %>
               </select> 
            </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save </button>
+        <button type="submit" class="btn btn-primary">Save </button>
       </div>
     </form>
   </div>
