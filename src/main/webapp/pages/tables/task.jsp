@@ -3,9 +3,9 @@
 <%@ page import="com.app.entity.User" %>
 <%@ page import="com.app.service.UserService" %>
 <%@ page import="com.app.entity.Task" %>
-<%-- <% if (session.getAttribute("userLogin") ==null){
+<% if (session.getAttribute("user") ==null){
   response.sendRedirect("../../login.jsp");
-}%> --%>
+}%> 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,7 +26,9 @@
                 <jsp:include page="../includes/asidebar.jsp"/>
             </div>
         </div>
-
+              <%
+              User userConected = (User) session.getAttribute("user");
+              %>
         <%--    -- -------------------------------content ----------------------------------------%>
         <div class="col py-3 overflow-x-hidden overflow-y-scroll" style="height: 100vh">
             <%--     -- Content Wrapper ----%>
@@ -36,7 +38,7 @@
                     <%--         -- Topbar ----%>
                     <nav class="navbar navbar-expand  mb-4 shadow">
                         <div>
-                            <p class="fs-5 ms-4">Welcome <span> ${ sessionScope.userName } !</span></p>
+                            <p class="fs-5 ms-4">Welcome <%= " "+userConected.getFirstName()+" "+userConected.getLastName() %> !</p>
                         </div>
                     </nav>
                     <%--          End of Topbar ---%>
