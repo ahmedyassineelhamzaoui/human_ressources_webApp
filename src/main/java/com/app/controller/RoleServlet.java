@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+
+import org.json.JSONObject;
+
 import com.app.entity.Role;
 import com.app.service.RoleService;
 import com.app.util.HibernateUtil;
@@ -33,6 +36,22 @@ public class RoleServlet extends HttpServlet {
                 Role roleToDelete = roleService.findById(roleIdToDelete);
             	try {
     				roleService.deleteRole(roleToDelete);
+    				response.setStatus(HttpServletResponse.SC_OK);
+    			}catch (Exception e) {
+    			    e.printStackTrace(); 
+    			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+    			}
+            }else if (request.getParameter("roleIdToEdit") !=null) {
+            	long roleIdToEdit = Long.parseLong(request.getParameter("roleIdToEdit"));
+            	try {
+                    Role role = roleService.findById(roleIdToEdit);
+                    JSONObject jsonResponse = new JSONObject();
+                    jsonResponse.put("id", role.getId());
+                    jsonResponse.put("name", role.getName());
+                    response.setContentType("application/json");
+                    response.setCharacterEncoding("UTF-8");
+
+                    response.getWriter().write(jsonResponse.toString());
     				response.setStatus(HttpServletResponse.SC_OK);
     			}catch (Exception e) {
     			    e.printStackTrace(); 
