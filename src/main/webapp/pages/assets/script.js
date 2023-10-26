@@ -210,7 +210,24 @@ function showDeleteTaskConfirmation(taskId){
 		confirmButtonColor:'#d33',
 	}).then((result)=>{
 		if(result.isConfirmed){
-			deleteEquipmentData(taskId);
+			deleteTaskData(taskId);
 		}
 	});
+}
+function deleteTaskData(taskId){
+	console.log("method called")
+	$.ajax({
+	    url: '/human_ressources/pages/tables/TaskServlet',
+	    type: 'GET',
+	    data: { taskId: taskId },
+	    success: function(response) {
+	      window.location.href = '/human_ressources/pages/tables/TaskServlet?success=task+deleted+successfuly';
+	    },
+	    error: function(xhr, status, error) {
+	      console.error('Failed to delete task');
+	      console.log('Status: ' + status);
+	      console.log('Error: ' + error);
+	      console.log(xhr.responseText);
+      	    }
+	  });
 }
