@@ -134,3 +134,19 @@ function deleteDepartmentData(departmentId) {
       	    }
 	  });
 	}
+function showDeleteConfirmationRole(roleId){
+	console.log("ok")
+    Swal.fire({
+        title: 'Delete Role',
+        text: 'Are you sure you want to delete this Role?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel',
+        confirmButtonColor: '#d33',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteDepartmentData(roleId);
+        }
+    });
+}
