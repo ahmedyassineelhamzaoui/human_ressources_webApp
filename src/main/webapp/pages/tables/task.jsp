@@ -140,7 +140,7 @@
               if(!users.isEmpty()){
             	  for(User u:users){
               %>
-                  <option value="Low"><%=u.getFirstName()+" "+u.getLastName() %></option>
+                  <option value="<%=u.getId()%>"><%=u.getFirstName()+" "+u.getLastName() %></option>
               <%}} %>
               </select> 
            </div>
