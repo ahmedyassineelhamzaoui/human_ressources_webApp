@@ -85,5 +85,13 @@ public class Equipement {
 				+ ", maintenanceDate=" + maintenanceDate + ", status=" + status + ", assignedUser=" + assignedUser
 				+ "]";
 	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
     
 }
