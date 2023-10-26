@@ -60,16 +60,42 @@ function showDeleteConfirmation(userId) {
 	    type: 'GET',
 	    data: { userIdToEdit: userId },
 	    success: function(response) {
+			const modal = $('#editUserModal');
+			const role_id = response.role_id; 
+		    const roleSelect = $('#role');
+		    let selected = false;
+		    roleSelect.find('option').each(function() {
+		        if ($(this).val() === role_id) {
+		            $(this).prop('selected', true);
+		            selected = true;
+		        }
+		    });
+		     if (!selected) {
+		        roleSelect.find('option:first').prop('selected', true);
+		    }
+		    const department_id = response.departement_id; 
+		    const departement = $('#departement');
+		    let selected1 = false;
+		    departement.find('option').each(function() {
+		        if ($(this).val() === department_id) {
+		            $(this).prop('selected', true);
+		            selected1 = true;
+		        }
+		    });
+		     if (!selected1) {
+		        departement.find('option:first').prop('selected', true);
+		    }
 			  const userName = response.name;
-		      const modal = $('#editUserModal');
+		     
 		      const form  = $('#editUserModalForm');
 		      const email = $('#email');
-		      const password = $('#password');
-		      const role   = $('#role');
-		      const departement = $('#departement');
-		      const hireDate = $('#hireDate');
+		      email.val(response.email);
+		      const rawDate = response.hireDate;		      
+		      const formattedDate = new Date(rawDate).toISOString().split('T')[0];
+			  const hireDate = $('#hireDate');
+			  hireDate.val(formattedDate);
 		      form.attr('action', 'EditUserServlet?userIdToEdit='+ userId);
-		       modal.modal('show');
+		      modal.modal('show');
 	    },
 	    error: function(xhr, status, error) {
 	      console.log('Status: ' + status);

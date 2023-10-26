@@ -43,12 +43,30 @@ public class UserServlet extends HttpServlet {
 			    e.printStackTrace(); 
 			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
-	    }else if(request.getParameter("editId") !=null){
-	    	long editId = Integer.parseInt(request.getParameter("editId"));
+	    }else if(request.getParameter("userIdToEdit") !=null){
+	    	long editId = Integer.parseInt(request.getParameter("userIdToEdit"));
 			try {
 				UserService userService = new UserService();
 				User user = userService.findUserById(editId);	        
-		        response.getWriter().write("users");
+				JSONObject jsonResponse = new JSONObject();
+                jsonResponse.put("id", user.getId());
+                long role_id = 0;
+                long departement_id = 0;
+
+                if(user.getRole() != null) {
+                  role_id = user.getRole().getId();
+                }
+                if(user.getDepartment() !=null) {
+                	departement_id = user.getDepartment().getId();
+                }
+                jsonResponse.put("role_id",role_id );
+                jsonResponse.put("departement_id",departement_id);
+                jsonResponse.put("hireDate",user.getHireDate() );
+                jsonResponse.put("email",user.getEmail());
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+
+                response.getWriter().write(jsonResponse.toString());
 				response.setStatus(HttpServletResponse.SC_OK);
 			}catch (Exception e) {
 			    e.printStackTrace(); 
