@@ -83,8 +83,20 @@
                                                     <td><p><%=o.getId() %></p></td>
                                                     <td><p><%=o.getDate_emprunt() %></p></td>
                                                     <td><p><%=o.getDate_retour() %></p></td>
-                                                    <td><p><%=o.getUser().getFirstName() %></p></td>
-                                                    <td><p><%=o.getEquipement().getName() %></p></td>
+                                                    <td><p>
+                                                    <% if(o.getUser() !=null && o.getUser().getFirstName() !=null){ %>
+                                                    <%=o.getUser().getFirstName() %>
+                                                    <% }else{ %>
+                                                    no user
+                                                    <% } %>
+                                                    </p></td>
+                                                    <td><p>
+                                                    <%if(o.getEquipement() !=null && o.getEquipement().getName() !=null){ %>
+                                                    <%=o.getEquipement().getName() %>
+                                                    <% }else{ %>
+                                                    no equipment
+                                                    <% } %>
+                                                    </p></td>
                                                     <td>
                                                      <div class="d-flex justify-content-center align-items-center">												
 														<button type="button" class="btn btn-danger mr-1" onclick="showDeleteOrderConfirmation();">
