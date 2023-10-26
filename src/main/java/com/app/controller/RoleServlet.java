@@ -25,21 +25,20 @@ public class RoleServlet extends HttpServlet {
 	    }
 	 
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        String action = request.getParameter("action");   
+
             RoleService roleService = new RoleService();
-            if ("deleteRole".equals(action)) {
-	            long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
 
-	            Role roleToDelete = roleService.findById(roleIdToDelete);
-
-	            if (roleToDelete != null) {
-	                roleService.deleteRole(roleToDelete);
-	                String successMessage="role {"+roleToDelete.getName()+"} deleted successfuly";
-		            response.sendRedirect("pages/tables/roles.jsp?success=" + URLEncoder.encode(successMessage, StandardCharsets.UTF_8));
-	            } else {
-	                response.sendRedirect(request.getContextPath() + "/error.jsp");
-	            }
-	        }else {
+            if(request.getParameter("roleId") !=null) {
+                long roleIdToDelete = Long.parseLong(request.getParameter("roleId"));
+                Role roleToDelete = roleService.findById(roleIdToDelete);
+            	try {
+    				roleService.deleteRole(roleToDelete);
+    				response.setStatus(HttpServletResponse.SC_OK);
+    			}catch (Exception e) {
+    			    e.printStackTrace(); 
+    			    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+    			}
+            }else {
 	        	List<Role> roles = roleService.getAllRoles();
 	        	request.setAttribute("roles", roles);
 	        	RequestDispatcher disapcher = request.getRequestDispatcher("roles.jsp");
