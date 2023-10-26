@@ -1,8 +1,10 @@
 package com.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.app.entity.Equipement;
+import com.app.entity.Order;
 import com.app.repository.EquipmentRepository;
 
 public class EquipmentService {
@@ -22,6 +24,10 @@ public class EquipmentService {
 		return equipementRepostiry.findById(id);
 	}
 	public void deleteEquipment(Equipement equipement) {
+		List<Order> ordersCopy = new ArrayList<>(equipement.getOrders());
+		for(Order o:ordersCopy) {
+			o.removeEquipment();
+		}
 		equipementRepostiry.deleteEquipment(equipement);
 	}
 	public Equipement updateEquipment(Equipement equipement) {
