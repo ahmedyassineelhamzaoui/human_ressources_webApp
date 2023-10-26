@@ -36,7 +36,7 @@ public class TaskRepository {
 		return entityManager.find(Task.class,id);
 	}
 	public List<Task> getAllTasks(){
-		return entityManager.createQuery("SELECT t TASK t",Task.class).getResultList();
+		return entityManager.createQuery("SELECT t From Task t",Task.class).getResultList();
 	}
 	public void updateTask(Task task) {
 		entityManager.getTransaction().begin();

@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.app.entity.User" %>
 <%@ page import="com.app.service.UserService" %>
+<%@ page import="com.app.entity.Task" %>
 <%-- <% if (session.getAttribute("userLogin") ==null){
   response.sendRedirect("../../login.jsp");
 }%> --%>
@@ -71,13 +72,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <%-- <% if(request.getAttribute("tasks") !=null){  --%>
+                                                <!-- for(Task task: (List<Task>) request.getAttribute("tasks")){%> -->
                                                 <tr>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
-                                                    <td><p></p></td>
+                                                    <%-- <td><p><%=t.getId() %></p></td>
+                                                    <td><p><%=t.getDeadline() %></p></td>
+                                                    <td><p><%=t.getAssignedUser().getFirstName() %></p></td>
+                                                    <td><p><%=t.getDescription() %></p></td>
+                                                    <td><p><%=t.getPriority() %></p></td>
+                                                    <td><p><%=t.getStatus() %></p></td> --%>
                                                     <td>
                                                         <div class="d-flex align-items-center">												
 															<button type="button" class="btn btn-danger me-1" onclick="showDeleteTaskConfirmation();">
@@ -94,6 +97,7 @@
 													    </div>
                                                     </td>
                                                 </tr>
+                                               <%--  <%} %> --%>
                                                 </tbody>
                                             </table>
                                         </div>
