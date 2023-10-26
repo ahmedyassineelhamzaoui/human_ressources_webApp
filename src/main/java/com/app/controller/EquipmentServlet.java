@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -85,6 +87,8 @@ public class EquipmentServlet extends HttpServlet {
 	    e.setType(type);
 	    e.setAssignedUser(user);
 	    equipmentService.SaveEquipment(e);
+	    String successMessage = "success="+ URLEncoder.encode("equipment created successfuly",StandardCharsets.UTF_8);
+    	response.sendRedirect("EquipmentServlet?"+successMessage);
 	}
 
 }
