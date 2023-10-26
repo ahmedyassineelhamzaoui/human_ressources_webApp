@@ -219,10 +219,10 @@
 		</div>
 	</div>
 	<!-- user Edit Modal  -->
-	<div class="modal fade" id="userEditModal" aria-hidden="true"
+	<div class="modal fade" id="editUserModal" aria-hidden="true"
 		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
-			<form  method="post" class="modal-content">
+			<form id="editUserModalForm"  method="post" class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit
 						User</h1>
@@ -238,11 +238,11 @@
 						<label class="form-label">Password</label> <input type="password"
 							name="password" class="form-control">
 					</div>
-					<div class="col-4 mb-3">
+					<div class="mb-3">
 						<label class="form-label">Hire Date</label> <input type="date"
 						  name="hireDate"	class="form-control">
 					</div>
-					<div class=" col-4 mb-3">
+					<div class="mb-3">
 						<label class="form-label">Department</label> <select
 							name="departement" class="form-select">
 							<% for(Departement d:departments){ %>
@@ -250,7 +250,7 @@
 							<% } %>
 						</select>
 					</div>
-					<div class=" col-4 mb-3">
+					<div class="mb-3">
 						<label class="form-label">Role</label> <select name="role"
 							class="form-select">
 							<% for(Role r:roles){ %>

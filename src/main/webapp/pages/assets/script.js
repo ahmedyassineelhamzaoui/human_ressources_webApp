@@ -54,6 +54,26 @@ function showDeleteConfirmation(userId) {
 	  });
 	  
 	}
+	function showUserInformation(userId) {
+		$.ajax({
+	    url: '/human_ressources/pages/tables/UserServlet',
+	    type: 'GET',
+	    data: { userIdToEdit: userId },
+	    success: function(response) {
+			  const userName = response.name;
+		      const modal = $('#editUserModal');
+		      const form  = $('#editUserModalForm');
+		       form.attr('action', 'EditUserServlet?userIdToEdit='+ userId);
+		       modal.modal('show');
+	    },
+	    error: function(xhr, status, error) {
+	      console.log('Status: ' + status);
+	      console.log('Error: ' + error);
+	      console.log(xhr.responseText);
+      	    }
+	  });
+	  
+	}
 	document.addEventListener("DOMContentLoaded", function() {
 	  document.querySelectorAll('.edit-role-modal').forEach((button) => {
 	    button.addEventListener('click', (event) => {
