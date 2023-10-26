@@ -64,6 +64,15 @@ function showDeleteConfirmation(userId) {
 	      }
 	    });
 	  });
+	  document.querySelectorAll('.edit-user-modal').forEach((button) => {
+	    button.addEventListener('click', (event) => {
+	      const userId = event.target.closest('.edit-user-modal').getAttribute('data-edituser-id');
+	      if (userId !== null) {
+	        showUserInformation(userId);
+	        console.log(userId);
+	      }
+	    });
+	  });
 	});
 
 
