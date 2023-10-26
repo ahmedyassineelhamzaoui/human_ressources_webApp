@@ -42,8 +42,8 @@ function showDeleteConfirmation(userId) {
               console.log(response.name)
 		      const modal = $('#editRoleModal');
 		      $("#roleNameToEdit").val(response.name);
-		
-		      modal.modal('show');
+               modal.action = 'EditRoleServlet?roleIdToEdit=' + roleId;
+		       modal.modal('show');
 	    },
 	    error: function(xhr, status, error) {
 	      console.log('Status: ' + status);

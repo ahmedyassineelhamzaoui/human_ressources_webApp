@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.app.service.RoleService;
+
 /**
  * Servlet implementation class EditRoleServlet
  */
@@ -33,8 +35,11 @@ public class EditRoleServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String roleName = request.getParameter("roleName");
+	    String id = request.getParameter("roleIdToEdit");
+	    System.out.println(id + " " +roleName);
+		RoleService roleService = new RoleService();
+	
 	}
 
 }

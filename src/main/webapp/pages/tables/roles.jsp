@@ -122,7 +122,7 @@
 <!-- delete role -->
 <div class="modal fade" id="editRoleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <form action="RoleServlet" method="post" class="modal-content">
+    <form action="" method="post" class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Role</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
