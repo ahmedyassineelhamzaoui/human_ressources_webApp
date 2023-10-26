@@ -38,7 +38,7 @@ public class EditRoleServlet extends HttpServlet {
 		String roleName = request.getParameter("roleName");
 	    String id = request.getParameter("roleIdToEdit");
 	    System.out.println(id + " " +roleName);
-		RoleService roleService = new RoleService();
+//		RoleService roleService = new RoleService();
 	
 	}
 
