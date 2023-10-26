@@ -167,3 +167,18 @@ function deleteRoleData(roleId){
       	    }
 	  });
 }
+function showDeleteConfirmationEquipment(equipmentId){
+	Swal.fire({
+		title: 'delete equipment',
+		text: 'Are you sure you want to delete this equipment ?',
+		icon:'warning',
+		showCancelButton:true,
+		confirmButtonText:'Yes,delete it',
+		cancelButtonText:'No cancel',
+		confirmButtonColor:'#d33',
+	}).then((result)=>{
+		if(result.isConfirmed){
+			deleteEquipmentData(equipmentId);
+		}
+	})
+}
