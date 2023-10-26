@@ -22,10 +22,10 @@ public class DepartmentService {
 		return departmentRepository.getAllDepartments();
 	}
 	public void removeDepartment(Departement department) {
-		 List<User> usersCopy = new ArrayList<>(department.getUsers());
-	        for (User user : usersCopy) {
-	            user.removeDepartment();
-	        }
+//			List<User> usersCopy = new ArrayList<>(department.getUsers());
+//	        for (User user : usersCopy) {
+//	            user.removeDepartment();
+//	        }		 
 		departmentRepository.deleteDepartment(department);
 	}
 	public Departement findById(long id) {

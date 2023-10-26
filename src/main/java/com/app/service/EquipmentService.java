@@ -24,10 +24,10 @@ public class EquipmentService {
 		return equipementRepostiry.findById(id);
 	}
 	public void deleteEquipment(Equipement equipement) {
-		List<Order> ordersCopy = new ArrayList<>(equipement.getOrders());
-		for(Order o:ordersCopy) {
-			o.removeEquipment();
-		}
+//		List<Order> ordersCopy = new ArrayList<>(equipement.getOrders());
+//		for(Order o:ordersCopy) {
+//			o.removeEquipment();
+//		}
 		equipementRepostiry.deleteEquipment(equipement);
 	}
 	public Equipement updateEquipment(Equipement equipement) {
