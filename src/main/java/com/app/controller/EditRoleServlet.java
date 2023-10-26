@@ -6,7 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
+import com.app.entity.Role;
 import com.app.service.RoleService;
 
 /**
@@ -38,7 +41,11 @@ public class EditRoleServlet extends HttpServlet {
 		String roleName = request.getParameter("roleName");
 	    long id = Integer.parseInt(request.getParameter("roleIdToEdit"));
 		RoleService roleService = new RoleService();
-	
+	    Role role = new Role();
+	    role.setName(roleName);
+	    roleService.updateRole(role, id);
+	    String successMessage = "success="+ URLEncoder.encode("role updated successfuly",StandardCharsets.UTF_8);
+    	response.sendRedirect("RoleServlet?"+successMessage);
 	}
 
 }
