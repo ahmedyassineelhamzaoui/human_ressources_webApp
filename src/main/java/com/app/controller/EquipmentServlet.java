@@ -35,15 +35,15 @@ public class EquipmentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("equipmentId") !=null) {
+			EquipmentService equipmentService = new EquipmentService();
+			long equipmentId = Integer.parseInt(request.getParameter("equipmentId"));
+			Equipement equipment = equipmentService.findById(equipmentId);
 			try {
-				EquipmentService equipmentService = new EquipmentService();
-				long equipmentId = Integer.parseInt(request.getParameter("equipmentId"));
-				Equipement equipment = equipmentService.findById(equipmentId);
 				equipmentService.deleteEquipment(equipment);
 				response.setStatus(HttpServletResponse.SC_OK);
 			}catch(Exception e) {
 				e.getMessage();
-				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
 			
 		}else {

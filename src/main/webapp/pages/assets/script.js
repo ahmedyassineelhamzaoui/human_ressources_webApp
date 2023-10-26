@@ -180,19 +180,22 @@ function showDeleteConfirmationEquipment(equipmentId){
 		if(result.isConfirmed){
 			deleteEquipmentData(equipmentId);
 		}
-	})
+	});
 }
 function deleteEquipmentData(equipmentId){
+	console.log("method called")
 	$.ajax({
-		url:'/human_ressources/pages/tables/EquipmentServlet',
-		type:'GET',
-		dara:{equipmentId:equipmentId},
-		success : function(response){
-			window.location.href  = '/human_ressources/pages/tables/EquipmentServlet?success=equipment+deleted+successfuly';
-		},error : function(xhr,status,error){
-			console.log("failed to remove equipment ");
-			console.log("error",error);
-			console.log(xhr.responseText);
-		}
-	})
+	    url: '/human_ressources/pages/tables/EquipmentServlet',
+	    type: 'GET',
+	    data: { equipmentId: equipmentId },
+	    success: function(response) {
+	      window.location.href = '/human_ressources/pages/tables/EquipmentServlet?success=equipment+deleted+successfuly';
+	    },
+	    error: function(xhr, status, error) {
+	      console.error('Failed to delete equipment');
+	      console.log('Status: ' + status);
+	      console.log('Error: ' + error);
+	      console.log(xhr.responseText);
+      	    }
+	  });
 }
