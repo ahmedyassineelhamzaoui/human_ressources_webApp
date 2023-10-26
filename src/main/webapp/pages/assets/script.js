@@ -182,3 +182,17 @@ function showDeleteConfirmationEquipment(equipmentId){
 		}
 	})
 }
+function deleteEquipmentData(equipmentId){
+	$.ajax({
+		url:'/human_ressources/pages/tables/EquipmentServlet',
+		type:'GET',
+		dara:{equipmentId:equipmentId},
+		success : function(response){
+			window.location.href  = '/human_ressources/pages/tables/EquipmentServlet?success=equipment+deleted+successfuly';
+		},error : function(xhr,status,error){
+			console.log("failed to remove equipment ");
+			console.log("error",error);
+			console.log(xhr.responseText);
+		}
+	})
+}
