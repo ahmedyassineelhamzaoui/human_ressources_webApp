@@ -47,7 +47,9 @@
 						<nav class="navbar navbar-expand  mb-4 shadow">
 							<div>
 								<p class="fs-5 ms-4">
+								   <% if(userConected !=null){ %>
 									Welcome <span> <%= " "+userConected.getFirstName()+" "+userConected.getLastName() %> !</span>
+								   <% } %>
 								</p>
 							</div>
 						</nav>

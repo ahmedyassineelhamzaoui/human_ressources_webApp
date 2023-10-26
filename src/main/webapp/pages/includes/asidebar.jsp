@@ -40,7 +40,7 @@
                             <span class="ms-1 d-none d-sm-inline">Profile</span></a>
                     </li>
                     <li>
-                        <a href="LogoutServlet" class="nav-link px-0 text-white">
+                        <a href="LogoutServelt" class="nav-link px-0 text-white">
                             <i class="bi bi-box-arrow-left"></i>
                             <span class="ms-1 d-none d-sm-inline">Logout</span> </a>
                     </li>
