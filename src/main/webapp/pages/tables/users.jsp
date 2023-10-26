@@ -222,15 +222,42 @@
 	<div class="modal fade" id="userEditModal" aria-hidden="true"
 		aria-labelledby="exampleModalToggleLabel" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
-			<form action="UserServlet" method="post" class="modal-content">
+			<form  method="post" class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add
+					<h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit
 						User</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div id="userInformation" class="modal-body">
-					
+					<div class="mb-3">
+						<label class="form-label">Email address</label> <input
+							type="email" name="email" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Password</label> <input type="password"
+							name="password" class="form-control">
+					</div>
+					<div class="col-4 mb-3">
+						<label class="form-label">Hire Date</label> <input type="date"
+						  name="hireDate"	class="form-control">
+					</div>
+					<div class=" col-4 mb-3">
+						<label class="form-label">Department</label> <select
+							name="departement" class="form-select">
+							<% for(Departement d:departments){ %>
+							<option value="<%=d.getId()%>"><%=d.getName() %></option>
+							<% } %>
+						</select>
+					</div>
+					<div class=" col-4 mb-3">
+						<label class="form-label">Role</label> <select name="role"
+							class="form-select">
+							<% for(Role r:roles){ %>
+							<option value="<%=r.getId()%>"><%=r.getName() %></option>
+							<% } %>
+						</select>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
