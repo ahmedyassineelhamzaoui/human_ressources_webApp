@@ -34,11 +34,26 @@ public class EquipmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EquipmentService equipmentServlet = new EquipmentService(); 
-        List<Equipement> equipments = equipmentServlet.getAllEquipment();
-        request.setAttribute("equipments", equipments);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("equipment.jsp");
-		dispatcher.forward(request, response);
+		if(request.getParameter("equipmentId") !=null) {
+			try {
+				EquipmentService equipmentService = new EquipmentService();
+				long equipmentId = Integer.parseInt(request.getParameter("equipmentId"));
+				Equipement equipment = equipmentService.findById(equipmentId);
+				equipmentService.deleteEquipment(equipment);
+				response.setStatus(HttpServletResponse.SC_OK);
+			}catch(Exception e) {
+				e.getMessage();
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			}
+			
+		}else {
+			EquipmentService equipmentServlet = new EquipmentService(); 
+	        List<Equipement> equipments = equipmentServlet.getAllEquipment();
+	        request.setAttribute("equipments", equipments);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("equipment.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 	}
 
 	/**
