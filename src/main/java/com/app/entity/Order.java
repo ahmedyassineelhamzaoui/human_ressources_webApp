@@ -65,6 +65,11 @@ public class Order {
 		public void setUser(User user) {
 			this.user = user;
 		}
-		
+		public void removeEquipment() {
+			if(equipement !=null) {
+				equipement.getOrders().remove(this);
+				equipement = null;
+			}
+		}
 
 }
