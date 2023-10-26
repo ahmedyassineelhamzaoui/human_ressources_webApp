@@ -115,4 +115,15 @@
     <url-pattern>/EditRoleServlet</url-pattern>
     <url-pattern>/pages/tables/EditRoleServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServelt</display-name>
+    <servlet-name>LogoutServelt</servlet-name>
+    <servlet-class>com.app.controller.LogoutServelt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServelt</servlet-name>
+    <url-pattern>/LogoutServelt</url-pattern>
+    <url-pattern>/pages/tables/LogoutServelt</url-pattern>
+  </servlet-mapping>
 </web-app>
