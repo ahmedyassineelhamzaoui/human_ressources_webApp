@@ -36,10 +36,22 @@ public class TaskServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TaskService taskService = new TaskService(); 
-	    List<Task> tasks = taskService.getAllTasks();
-		request.setAttribute("tasks", tasks);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("task.jsp");
-		dispatcher.forward(request, response);
+	    if(request.getParameter("taskId") !=null) {
+	    	long taskId = Integer.parseInt(request.getParameter("taskId"));
+	    	Task task = taskService.findById(taskId);
+	    	try {
+		    	taskService.deleteTask(task);
+		    	response.setStatus(HttpServletResponse.SC_OK);
+	    	}catch(Exception e) {
+	    		response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+	    	}
+	    }else {
+	    	List<Task> tasks = taskService.getAllTasks();
+			request.setAttribute("tasks", tasks);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("task.jsp");
+			dispatcher.forward(request, response);
+	    }
+		
 	}
 
 	/**
