@@ -35,5 +35,7 @@ public class RoleService {
     public Role findById(long id) {
     	return roleRepository.findById(id);
     }
-    
+    public void updateRole(Role role,long id) {
+    	roleRepository.updateRole(role,id);
+    }
 }

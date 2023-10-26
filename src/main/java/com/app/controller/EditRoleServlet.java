@@ -36,9 +36,8 @@ public class EditRoleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roleName = request.getParameter("roleName");
-	    String id = request.getParameter("roleIdToEdit");
-	    System.out.println(id + " " +roleName);
-//		RoleService roleService = new RoleService();
+	    long id = Integer.parseInt(request.getParameter("roleIdToEdit"));
+		RoleService roleService = new RoleService();
 	
 	}
 
