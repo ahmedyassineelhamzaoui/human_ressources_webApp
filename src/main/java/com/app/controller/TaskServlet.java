@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.app.entity.Task;
 import com.app.entity.User;
@@ -34,6 +35,9 @@ public class TaskServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TaskService taskService = new TaskService(); 
+		List<Task> tasks = taskService.getAllTasks();
+		request.setAttribute("tasks", tasks);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("task.jsp");
 		dispatcher.forward(request, response);
 	}
